@@ -1,0 +1,75 @@
+hero:
+  title: "Contactez-Nous"
+  description: "Des questions ? Nous sommes là pour vous aider"
+
+form:
+  title: "Envoyez-nous un message"
+  description: "Nous vous répondrons dans les plus brefs délais"
+  submitButton: "Envoyer"
+  fields:
+    firstName:
+      label: "Prénom"
+      placeholder: "Votre prénom"
+    lastName:
+      label: "Nom"
+      placeholder: "Votre nom"
+    email:
+      label: "Email"
+      placeholder: "contact@gearconnect.fr"
+    vehicle:
+      label: "Votre véhicule (optionnel)"
+      placeholder: "Marque, modèle et année"
+    subject:
+      label: "Sujet"
+      placeholder: "Sélectionnez un sujet"
+      options:
+        - value: ""
+          label: "Sélectionnez un sujet"
+        - value: "support"
+          label: "Support Technique"
+        - value: "feedback"
+          label: "Commentaires"
+        - value: "partnership"
+          label: "Proposition de Partenariat"
+        - value: "events"
+          label: "Organisation d'Événements"
+        - value: "other"
+          label: "Autre"
+    message:
+      label: "Message"
+      placeholder: "Décrivez votre demande en détail..."
+    privacy:
+      label: "J'accepte que GearConnect puisse utiliser mes données conformément à la politique de confidentialité."
+
+info:
+  title: "Informations de Contact"
+  description: "Plusieurs façons de nous joindre"
+  email:
+    title: "Email"
+    address: "contact@gearconnect.fr"
+    description: "Notre équipe répond sous 24 heures"
+  social:
+    title: "Réseaux Sociaux"
+
+faq:
+  title: "Questions Fréquemment Posées"
+  items:
+    - question: "Qu'est-ce que GearConnect ?"
+      answer: "GearConnect est le réseau social des passionnés de sport automobile. Partagez votre passion, suivez vos performances, connectez-vous à la communauté et accélérez votre carrière en course. Connectez Passion et Ambition."
+    
+    - question: "Comment fonctionne GearConnect ?"
+      answer: "Téléchargez l'application et créez votre profil. Partagez des publications et photos, suivez vos performances de course, découvrez des événements, connectez-vous avec d'autres passionnés et trouvez des opportunités dans le monde du sport automobile."
+    
+    - question: "GearConnect est-il gratuit ?"
+      answer: "Oui, GearConnect est entièrement gratuit à télécharger et à utiliser. Rejoignez des milliers de passionnés de sport automobile partageant leur passion et construisant leur réseau de course."
+    
+    - question: "Quelles fonctionnalités sont disponibles ?"
+      answer: "GearConnect comprend un fil d'actualité pour partager des publications, un suivi des performances pour enregistrer vos réalisations de course, la découverte et création d'événements, des fonctionnalités de réseautage et des opportunités d'emploi dans le sport automobile."
+    
+    - question: "Comment puis-je donner mon avis ?"
+      answer: "Nous aimons entendre notre communauté ! Vous pouvez partager vos commentaires en utilisant le formulaire de contact sur cette page, via nos réseaux sociaux ou directement via l'application. Vos retours nous aident à améliorer GearConnect."
+
+cta:
+  text: "Prêt à rejoindre la communauté ?"
+  buttonText: "Télécharger l'App"
+  link: "/#download"

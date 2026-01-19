@@ -5,6 +5,8 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { getNavbarContent, getFooterContent } from "@/lib/content";
+import { getLanguage } from "@/lib/get-language";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,29 +25,29 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://gearconnect-landing.vercel.app'),
-  title: "GearConnect - Career Acceleration Platform for Racing Pilots",
-  description: "Transform your racing talent into professional opportunities with smart analytics and strategic networking. The first career acceleration platform designed specifically for ambitious pilots.",
-  keywords: "career acceleration, racing pilots, motorsport analytics, professional racing, pilot development, racing careers, motorsport networking, performance analytics",
+  title: "GearConnect - Connect Passion with Ambition",
+  description: "The social network for motorsport enthusiasts. Share your passion, track your performances, connect with the community, and accelerate your racing career.",
+  keywords: "motorsport, racing, social network, performance tracking, racing community, motorsport events, racing app, gearconnect",
   authors: [{ name: 'GearConnect Team' }],
   openGraph: {
-    title: "GearConnect - Career Acceleration Platform for Racing Pilots",
-    description: "Transform your racing talent into professional opportunities with smart analytics and strategic networking.",
+    title: "GearConnect - Connect Passion with Ambition",
+    description: "The social network for motorsport enthusiasts. Share your passion, track your performances, and connect with the community.",
     url: 'https://gearconnect-landing.vercel.app',
     siteName: 'GearConnect',
     locale: 'en_US',
     type: 'website',
     images: [{
-      url: '/images/op-image.jpg',
-      width: 1200,
-      height: 630,
-      alt: 'GearConnect - Career Acceleration Platform for Racing Pilots',
+      url: '/logo.png',
+      width: 512,
+      height: 512,
+      alt: 'GearConnect Logo',
     }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "GearConnect - Career Acceleration Platform for Racing Pilots",
-    description: "Transform your racing talent into professional opportunities with smart analytics and strategic networking.",
-    images: ['/images/op-image.jpg'],
+    title: "GearConnect - Connect Passion with Ambition",
+    description: "The social network for motorsport enthusiasts. Share your passion, track your performances, and connect with the community.",
+    images: ['/logo.png'],
   },
   alternates: {
     canonical: 'https://gearconnect-landing.vercel.app'
@@ -63,23 +65,27 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const lang = await getLanguage();
+  const navbarContent = getNavbarContent(lang);
+  const footerContent = getFooterContent(lang);
+  
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        <div className="pt-16">
+        <Navbar content={navbarContent} currentLang={lang} />
+        <div className="pt-14 sm:pt-16">
           {children}
         </div>
         <SpeedInsights />
         <Analytics />
-        <Footer />
+        <Footer content={footerContent} />
       </body>
     </html>
   );

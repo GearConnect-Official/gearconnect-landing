@@ -1,0 +1,85 @@
+hero:
+  title: "Conecta Pasión con Ambición"
+  subtitle: "La red social para los entusiastas del motorsport"
+  description: "Comparte tu pasión, sigue tus rendimientos, conéctate con la comunidad y acelera tu carrera en las carreras."
+  primaryButton: "Descargar GearConnect"
+  secondaryButton: "Descubrir Funciones"
+  primaryButtonLink: "/#download"
+  secondaryButtonLink: "/#features"
+
+banner:
+  text: "🚀 Disponible ahora en Google Play • Próximamente en Apple Store"
+
+stats:
+  - value: "10K+"
+    label: "Usuarios Activos"
+    suffix: "+"
+  - value: "500+"
+    label: "Eventos"
+    suffix: "+"
+  - value: "50K+"
+    label: "Publicaciones Compartidas"
+    suffix: "+"
+  - value: "100+"
+    label: "Circuitos"
+    suffix: "+"
+
+download:
+  title: "¿Listo para Comenzar tu Viaje?"
+  subtitle: "Únete a miles de entusiastas del motorsport"
+  description: "Descarga GearConnect y conecta tu pasión con tu ambición"
+  badge: "Disponible Ahora"
+  androidButton: "Disponible en Google Play"
+  trustIndicators:
+    - label: "Gratis"
+    - label: "Sin Anuncios"
+    - label: "10K+ Usuarios"
+
+features:
+  title: "Funciones"
+  subtitle: "Descubre Lo Que Nos Hace Únicos"
+  description: "Todo lo que necesitas para conectarte, compartir y crecer en el mundo del motorsport"
+  feed:
+    title: "Feed Social"
+    description: "Comparte tus momentos, fotos y videos con la comunidad del motorsport."
+    items:
+      - "Publicaciones con imágenes y videos"
+      - "Me gusta, comentarios y compartir"
+      - "Hashtags y descubrimiento de contenido"
+    screenshot: "/images/app-screenshots/feed.png"
+  
+  events:
+    title: "Eventos"
+    description: "Descubre y crea eventos de motorsport cerca de ti."
+    items:
+      - "Buscar eventos por ubicación"
+      - "Crear y gestionar eventos"
+      - "Registro y participación"
+    screenshot: "/images/app-screenshots/events.png"
+  
+  performances:
+    title: "Seguimiento de Rendimiento"
+    description: "Registra tus tiempos de vuelta, resultados de carreras y sigue tu progreso."
+    items:
+      - "Registro de tiempos de vuelta"
+      - "Historial de rendimiento"
+      - "Estadísticas detalladas"
+      - "Comparte tus mejores resultados"
+      - "Seguimiento de progreso en el tiempo"
+    screenshot: "/images/app-screenshots/performances.png"
+
+usage:
+  title: "Cómo Usar GearConnect"
+  badge: "Formas de Usar la App"
+  items:
+    - title: "Perfil"
+      description: "Crea tu perfil, añade tus fotos y preséntate a la comunidad."
+      icon: "user"
+    
+    - title: "Red"
+      description: "Conéctate con otros usuarios, sigue a tus amigos y haz crecer tu red."
+      icon: "network"
+    
+    - title: "Oportunidades Laborales"
+      description: "Descubre oportunidades profesionales en el mundo del motorsport."
+      icon: "briefcase"

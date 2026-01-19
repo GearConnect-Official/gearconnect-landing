@@ -1,0 +1,31 @@
+hero:
+  title: "Conditions d'Utilisation"
+  description: "Dernière mise à jour : Janvier 2025"
+
+sections:
+  - title: "Acceptation des Conditions"
+    content: "En accédant ou en utilisant GearConnect, vous acceptez d'être lié par ces Conditions d'Utilisation. Si vous n'êtes pas d'accord avec une partie de ces conditions, vous ne pouvez pas accéder au service."
+  
+  - title: "Utilisation du Service"
+    content: "Vous devez avoir au moins 13 ans pour utiliser GearConnect. Vous acceptez d'utiliser le service uniquement à des fins légales et conformément à ces Conditions. Vous êtes responsable de maintenir la confidentialité de votre compte et de votre mot de passe."
+  
+  - title: "Contenu Utilisateur"
+    content: "Vous conservez la propriété de tout contenu que vous publiez sur GearConnect. En publiant du contenu, vous nous accordez une licence pour utiliser, afficher et distribuer votre contenu sur la plateforme. Vous êtes seul responsable du contenu que vous publiez et devez vous assurer qu'il ne viole aucune loi ou n'enfreint pas les droits d'autrui."
+  
+  - title: "Activités Interdites"
+    content: "Vous acceptez de ne pas utiliser GearConnect pour : publier du contenu illégal, nuisible ou offensant ; harceler, abuser ou nuire à d'autres utilisateurs ; usurper l'identité d'autres personnes ; envoyer du spam ou des messages non sollicités ; violer toute loi ou réglementation applicable."
+  
+  - title: "Propriété Intellectuelle"
+    content: "Le service GearConnect, y compris son contenu original, ses fonctionnalités et sa fonctionnalité, est la propriété de GearConnect et est protégé par les lois internationales sur le droit d'auteur, les marques de commerce et autres lois sur la propriété intellectuelle."
+  
+  - title: "Résiliation"
+    content: "Nous pouvons résilier ou suspendre votre compte immédiatement, sans préavis, pour un comportement que nous estimons violer ces Conditions ou nuire à d'autres utilisateurs, à nous ou à des tiers."
+  
+  - title: "Limitation de Responsabilité"
+    content: "GearConnect est fourni 'tel quel' sans garanties d'aucune sorte. Nous ne serons pas responsables de tout dommage indirect, accessoire, spécial ou consécutif résultant de votre utilisation du service."
+  
+  - title: "Modifications des Conditions"
+    content: "Nous nous réservons le droit de modifier ces Conditions à tout moment. Nous informerons les utilisateurs de toute modification importante. Votre utilisation continue du service après de telles modifications constitue une acceptation des Conditions mises à jour."
+  
+  - title: "Contactez-Nous"
+    content: "Si vous avez des questions concernant ces Conditions d'Utilisation, veuillez nous contacter à contact@gearconnect.fr"

@@ -1,0 +1,74 @@
+hero:
+  title: "Fonctionnalités"
+  description: "Tout ce dont vous avez besoin pour partager votre passion du sport automobile"
+
+notice:
+  label: "Disponible Maintenant"
+  text: "GearConnect est en ligne ! Téléchargez l'application et commencez à vous connecter avec la communauté du sport automobile dès aujourd'hui."
+
+performanceTracking:
+  title: "Suivi des Performances"
+  description: "Enregistrez vos temps au tour, résultats de course et suivez votre progression"
+  items:
+    - "Enregistrement des temps au tour"
+    - "Historique des performances"
+    - "Statistiques détaillées"
+    - "Partagez vos meilleurs résultats"
+    - "Suivi de progression dans le temps"
+  ctaText: "Télécharger l'App"
+  imageSrc: "/images/carInside.jpg"
+  imageAlt: "Système de suivi des performances"
+
+socialNetwork:
+  title: "Réseau Social"
+  description: "Partagez vos moments, connectez-vous à la communauté et découvrez des événements"
+  items:
+    - "Publications avec photos et vidéos"
+    - "Découverte d'événements de sport automobile"
+    - "Connectez-vous avec d'autres passionnés"
+    - "J'aime, commentaires et partages"
+    - "Construisez votre réseau"
+  ctaText: "Télécharger l'App"
+  imageSrc: "/images/reunions.jpg"
+  imageAlt: "Communauté de professionnels de l'industrie"
+
+whyGearConnect:
+  title: "Pourquoi GearConnect ?"
+  description: "La plateforme tout-en-un pour les passionnés de sport automobile pour partager, se connecter et développer leur réseau de course"
+  items:
+    - title: "Partagez Votre Passion"
+      description: "Partagez vos moments de course, réalisations et expériences avec une communauté qui comprend votre passion pour le sport automobile."
+      icon: "target"
+    
+    - title: "Suivez Votre Progression"
+      description: "Enregistrez vos performances, suivez vos améliorations et mettez en valeur vos réalisations pour construire votre profil de course."
+      icon: "rocket"
+    
+    - title: "Construisez Votre Réseau"
+      description: "Connectez-vous avec d'autres passionnés, découvrez des événements, trouvez des opportunités et développez votre présence dans le monde du sport automobile."
+      icon: "handshake"
+
+keyFeatures:
+  title: "Toutes les Fonctionnalités Dont Vous Avez Besoin"
+  description: "Tout en un seul endroit pour vous aider à vous connecter, partager et grandir dans la communauté du sport automobile"
+  items:
+    - title: "Fil d'Actualité"
+      description: "Partagez des publications, photos et vidéos. Interagissez avec la communauté via les j'aime et commentaires."
+      icon: "phone"
+    
+    - title: "Suivi des Performances"
+      description: "Enregistrez vos temps au tour, résultats de course et suivez votre progression dans le temps."
+      icon: "chart"
+    
+    - title: "Événements"
+      description: "Découvrez les événements de sport automobile près de chez vous, créez les vôtres et connectez-vous avec les participants."
+      icon: "calendar"
+    
+    - title: "Opportunités"
+      description: "Trouvez des offres d'emploi et opportunités de carrière dans l'industrie du sport automobile."
+      icon: "briefcase"
+
+cta:
+  title: "Prêt à Connecter Votre Passion à Votre Ambition ?"
+  description: "Téléchargez GearConnect aujourd'hui et rejoignez des milliers de passionnés de sport automobile partageant leur passion, suivant leurs performances et construisant leur réseau de course."
+  buttonText: "Télécharger Maintenant"

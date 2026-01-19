@@ -1,0 +1,85 @@
+hero:
+  title: "Leidenschaft mit Ambition verbinden"
+  subtitle: "Das soziale Netzwerk für Motorsport-Enthusiasten"
+  description: "Teilen Sie Ihre Leidenschaft, verfolgen Sie Ihre Leistungen, verbinden Sie sich mit der Community und beschleunigen Sie Ihre Rennkarriere."
+  primaryButton: "GearConnect herunterladen"
+  secondaryButton: "Funktionen entdecken"
+  primaryButtonLink: "/#download"
+  secondaryButtonLink: "/#features"
+
+banner:
+  text: "🚀 Jetzt verfügbar im Google Play Store • Bald im Apple Store"
+
+stats:
+  - value: "10K+"
+    label: "Aktive Nutzer"
+    suffix: "+"
+  - value: "500+"
+    label: "Veranstaltungen"
+    suffix: "+"
+  - value: "50K+"
+    label: "Geteilte Beiträge"
+    suffix: "+"
+  - value: "100+"
+    label: "Rennstrecken"
+    suffix: "+"
+
+download:
+  title: "Bereit, Ihre Reise zu beginnen?"
+  subtitle: "Schließen Sie sich Tausenden von Motorsport-Enthusiasten an"
+  description: "Laden Sie GearConnect herunter und verbinden Sie Ihre Leidenschaft mit Ambition"
+  badge: "Jetzt verfügbar"
+  androidButton: "Im Google Play Store erhältlich"
+  trustIndicators:
+    - label: "Kostenlos"
+    - label: "Keine Werbung"
+    - label: "10K+ Nutzer"
+
+features:
+  title: "Funktionen"
+  subtitle: "Entdecken Sie, was uns auszeichnet"
+  description: "Alles, was Sie brauchen, um sich zu verbinden, zu teilen und in der Motorsport-Welt zu wachsen"
+  feed:
+    title: "Social Feed"
+    description: "Teilen Sie Ihre Momente, Fotos und Videos mit der Motorsport-Community."
+    items:
+      - "Beiträge mit Bildern und Videos"
+      - "Likes, Kommentare und Shares"
+      - "Hashtags und Content-Entdeckung"
+    screenshot: "/images/app-screenshots/feed.png"
+  
+  events:
+    title: "Veranstaltungen"
+    description: "Entdecken und erstellen Sie Motorsport-Veranstaltungen in Ihrer Nähe."
+    items:
+      - "Veranstaltungen nach Standort suchen"
+      - "Veranstaltungen erstellen und verwalten"
+      - "Anmeldung und Teilnahme"
+    screenshot: "/images/app-screenshots/events.png"
+  
+  performances:
+    title: "Leistungsverfolgung"
+    description: "Protokollieren Sie Ihre Rundenzeiten, Rennergebnisse und verfolgen Sie Ihren Fortschritt."
+    items:
+      - "Rundenzeit-Aufzeichnung"
+      - "Leistungsverlauf"
+      - "Detaillierte Statistiken"
+      - "Teilen Sie Ihre besten Ergebnisse"
+      - "Fortschrittsverfolgung über die Zeit"
+    screenshot: "/images/app-screenshots/performances.png"
+
+usage:
+  title: "Wie man GearConnect nutzt"
+  badge: "Möglichkeiten, die App zu nutzen"
+  items:
+    - title: "Profil"
+      description: "Erstellen Sie Ihr Profil, fügen Sie Ihre Fotos hinzu und stellen Sie sich der Community vor."
+      icon: "user"
+    
+    - title: "Netzwerk"
+      description: "Verbinden Sie sich mit anderen Nutzern, folgen Sie Ihren Freunden und erweitern Sie Ihr Netzwerk."
+      icon: "network"
+    
+    - title: "Karrieremöglichkeiten"
+      description: "Entdecken Sie Karrieremöglichkeiten in der Motorsport-Welt."
+      icon: "briefcase"

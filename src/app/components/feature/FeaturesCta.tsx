@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 
 interface FeatureCtaProps {
@@ -19,8 +18,8 @@ export default function FeaturesCta({ title, description, buttonText }: FeatureC
         </p>
         <div className="features-cta-button-container">
           <Link
-            href="/#waitlist"
-            className="features-cta-button"
+            href="/#download"
+            className="features-cta-button hover:scale-105 transition-all duration-300 ease-out"
           >
             {buttonText}
           </Link>

@@ -1,0 +1,13 @@
+brand:
+  name: "GearConnect"
+  tagline: "Conecta Pasión con Ambición"
+
+menu:
+  home: "Inicio"
+  features: "Funciones"
+  faq: "FAQ"
+  contact: "Contacto"
+
+cta:
+  text: "Descargar"
+  link: "/#download"

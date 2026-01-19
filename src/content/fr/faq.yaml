@@ -1,0 +1,36 @@
+hero:
+  title: "Questions Fréquemment Posées"
+  description: "Tout ce que vous devez savoir sur GearConnect"
+
+questions:
+  - question: "Qu'est-ce que GearConnect ?"
+    answer: "GearConnect est le réseau social des passionnés de sport automobile. Partagez votre passion, suivez vos performances, connectez-vous à la communauté et accélérez votre carrière en course. Connectez Passion et Ambition."
+  
+  - question: "Comment fonctionne GearConnect ?"
+    answer: "Téléchargez l'application et créez votre profil. Partagez des publications et photos, suivez vos performances de course, découvrez des événements, connectez-vous avec d'autres passionnés et trouvez des opportunités dans le monde du sport automobile."
+  
+  - question: "GearConnect est-il gratuit ?"
+    answer: "Oui, GearConnect est entièrement gratuit à télécharger et à utiliser. Rejoignez des milliers de passionnés de sport automobile partageant leur passion et construisant leur réseau de course."
+  
+  - question: "Quelles fonctionnalités sont disponibles ?"
+    answer: "GearConnect comprend un fil d'actualité pour partager des publications, un suivi des performances pour enregistrer vos réalisations de course, la découverte et création d'événements, des fonctionnalités de réseautage et des opportunités d'emploi dans le sport automobile."
+  
+  - question: "Comment puis-je donner mon avis ?"
+    answer: "Nous aimons entendre notre communauté ! Vous pouvez partager vos commentaires en utilisant le formulaire de contact, via nos réseaux sociaux ou directement via l'application. Vos retours nous aident à améliorer GearConnect."
+  
+  - question: "Quels types de performances puis-je suivre ?"
+    answer: "Vous pourrez enregistrer vos temps au tour, résultats de course, classements de championnat, records personnels et améliorations sur différents circuits et catégories de course."
+  
+  - question: "Qui verra mes données de performance ?"
+    answer: "Seules les équipes vérifiées, sponsors et mentors de notre communauté auront accès aux données de performance. Vous contrôlez vos paramètres de confidentialité et pouvez choisir ce que vous partagez."
+  
+  - question: "Dois-je être un pilote professionnel pour rejoindre ?"
+    answer: "Non ! Nous accueillons les pilotes de tous niveaux - des passionnés de karting aux pilotes professionnels. Notre plateforme est conçue pour aider les talents à tous les stades à être découverts."
+
+help:
+  title: "Vous avez encore des questions ?"
+  description: "Notre équipe est là pour vous aider. Contactez-nous et nous répondrons dans les plus brefs délais."
+  contactButton: "Nous Contacter"
+  downloadButton: "Télécharger l'App"
+  contactLink: "/contact"
+  downloadLink: "/#download"

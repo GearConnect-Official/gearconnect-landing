@@ -1,0 +1,85 @@
+hero:
+  title: "Connectez Passion et Ambition"
+  subtitle: "Le réseau social des passionnés de sport automobile"
+  description: "Partagez votre passion, suivez vos performances, connectez-vous à la communauté et accélérez votre carrière en course."
+  primaryButton: "Télécharger GearConnect"
+  secondaryButton: "Découvrir les Fonctionnalités"
+  primaryButtonLink: "/#download"
+  secondaryButtonLink: "/#features"
+
+banner:
+  text: "🚀 Disponible sur Google Play • Bientôt sur Apple Store"
+
+stats:
+  - value: "10K+"
+    label: "Utilisateurs Actifs"
+    suffix: "+"
+  - value: "500+"
+    label: "Événements"
+    suffix: "+"
+  - value: "50K+"
+    label: "Publications Partagées"
+    suffix: "+"
+  - value: "100+"
+    label: "Circuits"
+    suffix: "+"
+
+download:
+  title: "Prêt à Commencer Votre Parcours ?"
+  subtitle: "Rejoignez des milliers de passionnés de sport automobile"
+  description: "Téléchargez GearConnect et connectez votre passion à votre ambition"
+  badge: "Disponible Maintenant"
+  androidButton: "Disponible sur Google Play"
+  trustIndicators:
+    - label: "Gratuit"
+    - label: "Sans Publicité"
+    - label: "10K+ Utilisateurs"
+
+features:
+  title: "Fonctionnalités"
+  subtitle: "Découvrez Ce Qui Nous Rend Uniques"
+  description: "Tout ce dont vous avez besoin pour vous connecter, partager et grandir dans le monde du sport automobile"
+  feed:
+    title: "Fil d'Actualité"
+    description: "Partagez vos moments, photos et vidéos avec la communauté du sport automobile."
+    items:
+      - "Publications avec images et vidéos"
+      - "J'aime, commentaires et partages"
+      - "Hashtags et découverte de contenu"
+    screenshot: "/images/app-screenshots/feed.png"
+  
+  events:
+    title: "Événements"
+    description: "Découvrez et créez des événements de sport automobile près de chez vous."
+    items:
+      - "Recherche d'événements par localisation"
+      - "Création et gestion d'événements"
+      - "Inscription et participation"
+    screenshot: "/images/app-screenshots/events.png"
+  
+  performances:
+    title: "Suivi des Performances"
+    description: "Enregistrez vos temps au tour, résultats de course et suivez votre progression."
+    items:
+      - "Enregistrement des temps au tour"
+      - "Historique des performances"
+      - "Statistiques détaillées"
+      - "Partagez vos meilleurs résultats"
+      - "Suivi de progression dans le temps"
+    screenshot: "/images/app-screenshots/performances.png"
+
+usage:
+  title: "Comment Utiliser GearConnect"
+  badge: "Façons d'Utiliser l'Application"
+  items:
+    - title: "Profil"
+      description: "Créez votre profil, ajoutez vos photos et présentez-vous à la communauté."
+      icon: "user"
+    
+    - title: "Réseau"
+      description: "Connectez-vous avec d'autres utilisateurs, suivez vos amis et développez votre réseau."
+      icon: "network"
+    
+    - title: "Opportunités Professionnelles"
+      description: "Découvrez les opportunités de carrière dans le monde du sport automobile."
+      icon: "briefcase"

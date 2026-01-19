@@ -1,0 +1,25 @@
+hero:
+  title: "Privacy Policy"
+  description: "Last updated: January 2025"
+
+sections:
+  - title: "Introduction"
+    content: "GearConnect ('we', 'our', or 'us') is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and services."
+  
+  - title: "Information We Collect"
+    content: "We collect information that you provide directly to us, including your name, email address, profile information, photos, posts, and any other content you choose to share on the platform. We also collect information about your device, including device identifiers, operating system, and usage data."
+  
+  - title: "How We Use Your Information"
+    content: "We use the information we collect to provide, maintain, and improve our services, to communicate with you, to personalize your experience, and to ensure the security of our platform. We may also use your information for analytics and to comply with legal obligations."
+  
+  - title: "Data Sharing"
+    content: "We do not sell your personal information. We may share your information with service providers who assist us in operating our platform, with other users as part of the social features of the app, or when required by law."
+  
+  - title: "Data Security"
+    content: "We implement appropriate technical and organizational measures to protect your personal information. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security."
+  
+  - title: "Your Rights"
+    content: "You have the right to access, update, or delete your personal information at any time through the app settings. You may also contact us to exercise your rights under applicable data protection laws."
+  
+  - title: "Contact Us"
+    content: "If you have any questions about this Privacy Policy, please contact us at contact@gearconnect.fr"

@@ -1,0 +1,44 @@
+about:
+  title: "GearConnect"
+  tagline: "Collega Passione con Ambizione"
+  description: "Il social network per gli appassionati di motorsport. Condividi la tua passione, monitora le tue prestazioni, connettiti con la community e accelera la tua carriera nelle corse."
+
+quickLinks:
+  title: "Accesso Rapido"
+  items:
+    - label: "Home"
+      link: "/"
+    - label: "Funzionalità"
+      link: "/features"
+    - label: "FAQ"
+      link: "/faq"
+    - label: "Scarica App"
+      link: "/#download"
+
+appFeatures:
+  title: "Funzionalità dell'App"
+  items:
+    - label: "Feed Social"
+      link: "/features"
+    - label: "Monitoraggio Prestazioni"
+      link: "/features"
+    - label: "Eventi e Networking"
+      link: "/features"
+
+contact:
+  title: "Contatto"
+  email: "contact@gearconnect.fr"
+  emailLabel: "Email"
+  socialLabel: "Social Media"
+
+legal:
+  copyright: "GearConnect. Tutti i diritti riservati."
+  privacy: "Politica sulla Privacy"
+  terms: "Termini di Utilizzo"
+  privacyLink: "/privacy"
+  termsLink: "/terms"
+
+social:
+  linkedin: "https://www.linkedin.com/company/gearconnect/"
+  instagram: "https://www.instagram.com/gearconnectfr/"
+  tiktok: "https://www.tiktok.com/@gearconnectfr"

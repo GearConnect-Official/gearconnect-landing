@@ -1,97 +1,134 @@
-import React from 'react';
 
 interface ContactFormProps {
   title: string;
   description: string;
   submitButtonText: string;
+  fields: {
+    firstName: {
+      label: string;
+      placeholder: string;
+    };
+    lastName: {
+      label: string;
+      placeholder: string;
+    };
+    email: {
+      label: string;
+      placeholder: string;
+    };
+    vehicle: {
+      label: string;
+      placeholder: string;
+    };
+    subject: {
+      label: string;
+      placeholder: string;
+      options: Array<{
+        value: string;
+        label: string;
+      }>;
+    };
+    message: {
+      label: string;
+      placeholder: string;
+    };
+    privacy: {
+      label: string;
+    };
+  };
 }
 
-export default function ContactForm({ title, description, submitButtonText }: ContactFormProps) {
+export default function ContactForm({ title, description, submitButtonText, fields }: ContactFormProps) {
   return (
     <div>
-      <h2 className="text-3xl font-bold text-gray-900 mb-6">
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 md:mb-6 break-words" style={{ color: '#1E232C' }}>
         {title}
       </h2>
-      <p className="text-black mb-8">
+      <p className="text-sm sm:text-base font-medium mb-4 sm:mb-6 md:mb-8 break-words" style={{ color: '#474C54' }}>
         {description}
       </p>
       
       <form className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="firstName" className="block text-black font-medium mb-2">
-              First Name
+            <label htmlFor="firstName" className="block text-sm sm:text-base font-medium mb-2 break-words" style={{ color: '#474C54' }}>
+              {fields.firstName.label}
             </label>
             <input
               type="text"
               id="firstName"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-indigo-700 focus:border-indigo-700 text-black"
-              placeholder="Your first name"
+              className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#E53935] focus:border-[#E53935] transition-all duration-200"
+              style={{ borderColor: '#DAE0E6', color: '#1E232C' }}
+              placeholder={fields.firstName.placeholder}
             />
           </div>
           <div>
-            <label htmlFor="lastName" className="block text-black font-medium mb-2">
-              Last Name
+            <label htmlFor="lastName" className="block text-sm sm:text-base font-medium mb-2 break-words" style={{ color: '#474C54' }}>
+              {fields.lastName.label}
             </label>
             <input
               type="text"
               id="lastName"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-indigo-700 focus:border-indigo-700 text-black"
-              placeholder="Your last name"
+              className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#E53935] focus:border-[#E53935] transition-all duration-200"
+              style={{ borderColor: '#DAE0E6', color: '#1E232C' }}
+              placeholder={fields.lastName.placeholder}
             />
           </div>
         </div>
         
         <div>
-          <label htmlFor="email" className="block text-black font-medium mb-2">
-            Email
+          <label htmlFor="email" className="block text-sm sm:text-base font-medium mb-2 break-words" style={{ color: '#474C54' }}>
+            {fields.email.label}
           </label>
           <input
             type="email"
             id="email"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-indigo-700 focus:border-indigo-700 text-black"
-            placeholder="contact@gearconnect.fr"
+            className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#E53935] focus:border-[#E53935] transition-all duration-200"
+            style={{ borderColor: '#DAE0E6', color: '#1E232C' }}
+            placeholder={fields.email.placeholder}
           />
         </div>
         
         <div>
-          <label htmlFor="vehicle" className="block text-black font-medium mb-2">
-            Your vehicle (optional)
+          <label htmlFor="vehicle" className="block text-sm sm:text-base font-medium mb-2 break-words" style={{ color: '#474C54' }}>
+            {fields.vehicle.label}
           </label>
           <input
             type="text"
             id="vehicle"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-indigo-700 focus:border-indigo-700 text-black"
-            placeholder="Make, model and year"
+            className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#E53935] focus:border-[#E53935] transition-all duration-200"
+            style={{ borderColor: '#DAE0E6', color: '#1E232C' }}
+            placeholder={fields.vehicle.placeholder}
           />
         </div>
         
         <div>
-          <label htmlFor="subject" className="block text-black font-medium mb-2">
-            Subject
+          <label htmlFor="subject" className="block text-sm sm:text-base font-medium mb-2 break-words" style={{ color: '#474C54' }}>
+            {fields.subject.label}
           </label>
           <select
             id="subject"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-indigo-700 focus:border-indigo-700 bg-white text-black"
+            className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#E53935] focus:border-[#E53935] bg-white transition-all duration-200"
+            style={{ borderColor: '#DAE0E6', color: '#1E232C' }}
           >
-            <option value="">Select a subject</option>
-            <option value="support">Technical Support</option>
-            <option value="feedback">Feedback</option>
-            <option value="partnership">Partnership Proposal</option>
-            <option value="events">Event Organization</option>
-            <option value="other">Other</option>
+            {fields.subject.options.map((option, index) => (
+              <option key={index} value={option.value}>
+                {option.label}
+              </option>
+            ))}
           </select>
         </div>
         
         <div>
-          <label htmlFor="message" className="block text-black font-medium mb-2">
-            Message
+          <label htmlFor="message" className="block text-sm sm:text-base font-medium mb-2 break-words" style={{ color: '#474C54' }}>
+            {fields.message.label}
           </label>
           <textarea
             id="message"
             rows={5}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-indigo-700 focus:border-indigo-700 text-black"
-            placeholder="Describe your request in detail..."
+            className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#E53935] focus:border-[#E53935] transition-all duration-200"
+            style={{ borderColor: '#DAE0E6', color: '#1E232C' }}
+            placeholder={fields.message.placeholder}
           ></textarea>
         </div>
         
@@ -99,16 +136,17 @@ export default function ContactForm({ title, description, submitButtonText }: Co
           <input
             type="checkbox"
             id="privacy"
-            className="mt-1 h-4 w-4 focus:ring-indigo-700 border-gray-300 rounded text-black"
+            className="mt-1 h-4 w-4 focus:ring-[#E53935] rounded transition-all duration-200"
+            style={{ borderColor: '#DAE0E6', accentColor: '#E53935' }}
           />
-          <label htmlFor="privacy" className="ml-2 block text-black">
-            I agree that GearConnect may use my data in accordance with the privacy policy.
+          <label htmlFor="privacy" className="ml-2 block text-xs sm:text-sm font-medium break-words" style={{ color: '#474C54' }}>
+            {fields.privacy.label}
           </label>
         </div>
         
         <button
           type="submit"
-          className="bg-indigo-700 text-white hover:bg-indigo-800 py-3 px-8 rounded-lg font-medium shadow-md"
+          className="bg-[#E53935] text-white hover:bg-[#C62828] py-2.5 sm:py-3 px-6 sm:px-8 rounded-lg text-sm sm:text-base font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-out whitespace-nowrap"
         >
           {submitButtonText}
         </button>

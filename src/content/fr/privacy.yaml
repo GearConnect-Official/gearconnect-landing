@@ -1,0 +1,25 @@
+hero:
+  title: "Politique de Confidentialité"
+  description: "Dernière mise à jour : Janvier 2025"
+
+sections:
+  - title: "Introduction"
+    content: "GearConnect ('nous', 'notre' ou 'nos') s'engage à protéger votre vie privée. Cette Politique de Confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations lorsque vous utilisez notre application mobile et nos services."
+  
+  - title: "Informations Que Nous Collectons"
+    content: "Nous collectons les informations que vous nous fournissez directement, y compris votre nom, adresse e-mail, informations de profil, photos, publications et tout autre contenu que vous choisissez de partager sur la plateforme. Nous collectons également des informations sur votre appareil, y compris les identifiants d'appareil, le système d'exploitation et les données d'utilisation."
+  
+  - title: "Comment Nous Utilisons Vos Informations"
+    content: "Nous utilisons les informations que nous collectons pour fournir, maintenir et améliorer nos services, pour communiquer avec vous, pour personnaliser votre expérience et pour assurer la sécurité de notre plateforme. Nous pouvons également utiliser vos informations à des fins d'analyse et pour nous conformer aux obligations légales."
+  
+  - title: "Partage de Données"
+    content: "Nous ne vendons pas vos informations personnelles. Nous pouvons partager vos informations avec des prestataires de services qui nous aident à exploiter notre plateforme, avec d'autres utilisateurs dans le cadre des fonctionnalités sociales de l'application, ou lorsque la loi l'exige."
+  
+  - title: "Sécurité des Données"
+    content: "Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos informations personnelles. Cependant, aucune méthode de transmission sur Internet n'est sécurisée à 100%, et nous ne pouvons garantir une sécurité absolue."
+  
+  - title: "Vos Droits"
+    content: "Vous avez le droit d'accéder, de mettre à jour ou de supprimer vos informations personnelles à tout moment via les paramètres de l'application. Vous pouvez également nous contacter pour exercer vos droits en vertu des lois applicables sur la protection des données."
+  
+  - title: "Contactez-Nous"
+    content: "Si vous avez des questions concernant cette Politique de Confidentialité, veuillez nous contacter à contact@gearconnect.fr"

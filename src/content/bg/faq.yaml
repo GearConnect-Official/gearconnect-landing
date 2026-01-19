@@ -1,0 +1,36 @@
+hero:
+  title: "Frequently Asked Questions"
+  description: "Everything you need to know about GearConnect"
+
+questions:
+  - question: "What is GearConnect?"
+    answer: "GearConnect is the social network for motorsport enthusiasts. Share your passion, track your performances, connect with the community, and accelerate your racing career. Connect Passion with Ambition."
+  
+  - question: "How does GearConnect work?"
+    answer: "Download the app and create your profile. Share posts and photos, track your racing performances, discover events, connect with fellow enthusiasts, and find opportunities in the motorsport world."
+  
+  - question: "Is GearConnect free?"
+    answer: "Yes, GearConnect is completely free to download and use. Join thousands of motorsport enthusiasts sharing their passion and building their racing network."
+  
+  - question: "What features are available?"
+    answer: "GearConnect includes a social feed for sharing posts, performance tracking for logging your racing achievements, event discovery and creation, networking features, and job opportunities in motorsport."
+  
+  - question: "How can I provide feedback?"
+    answer: "We love hearing from our community! You can share feedback using the contact form, through our social media channels, or directly through the app. Your input helps us improve GearConnect."
+  
+  - question: "What kind of performances can I track?"
+    answer: "You'll be able to log lap times, race results, championship standings, personal bests, and improvements across different tracks and racing categories."
+  
+  - question: "Who will see my performance data?"
+    answer: "Only verified teams, sponsors, and mentors in our community will have access to performance data. You control your privacy settings and can choose what to share."
+  
+  - question: "Do I need to be a professional racer to join?"
+    answer: "No! We welcome pilots at all levels - from karting enthusiasts to professional racers. Our platform is designed to help talent at every stage get discovered."
+
+help:
+  title: "Still have questions?"
+  description: "Our team is here to help. Get in touch and we'll respond as quickly as possible."
+  contactButton: "Contact Us"
+  downloadButton: "Download App"
+  contactLink: "/contact"
+  downloadLink: "/#download"

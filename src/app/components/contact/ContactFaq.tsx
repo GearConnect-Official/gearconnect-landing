@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 
 interface FaqItem {
@@ -15,20 +14,20 @@ interface ContactFaqProps {
 
 export default function ContactFaq({ title, faqItems, ctaText, ctaButtonText }: ContactFaqProps) {
   return (
-    <section className="py-20 bg-indigo-50">
+    <section className="py-12 sm:py-16 md:py-20" style={{ backgroundColor: '#F7F8F9' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12 break-words" style={{ color: '#1E232C' }}>
           {title}
         </h2>
         
-        <div className="grid gap-6 max-w-4xl mx-auto">
+        <div className="grid gap-4 sm:gap-6 max-w-4xl mx-auto">
           {faqItems.map((item, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden">
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+            <div key={index} className="bg-white rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 ease-out overflow-hidden border-l-4 min-w-0" style={{ borderColor: '#E53935' }}>
+              <div className="p-4 sm:p-6 md:p-8">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 break-words" style={{ color: '#1E232C' }}>
                   {item.question}
                 </h3>
-                <p className="text-black">
+                <p className="text-sm sm:text-base font-medium break-words leading-relaxed" style={{ color: '#474C54' }}>
                   {item.answer}
                 </p>
               </div>
@@ -36,13 +35,13 @@ export default function ContactFaq({ title, faqItems, ctaText, ctaButtonText }: 
           ))}
         </div>
         
-        <div className="text-center mt-12">
-          <p className="text-lg text-black mb-4">
+        <div className="text-center mt-8 sm:mt-10 md:mt-12">
+          <p className="text-base sm:text-lg md:text-xl font-medium mb-4 sm:mb-6 break-words" style={{ color: '#474C54' }}>
             {ctaText}
           </p>
           <Link
-            href="/#waitlist"
-            className="inline-flex items-center bg-indigo-700 text-white hover:bg-indigo-800 py-3 px-8 rounded-lg font-medium shadow-md"
+            href="/#download"
+            className="inline-flex items-center bg-[#E53935] text-white hover:bg-[#C62828] py-2.5 sm:py-3 px-6 sm:px-8 rounded-lg text-sm sm:text-base font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-out whitespace-nowrap"
           >
             {ctaButtonText}
           </Link>

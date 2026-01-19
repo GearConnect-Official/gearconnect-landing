@@ -1,0 +1,74 @@
+hero:
+  title: "Features"
+  description: "Everything you need to share your passion for motorsport"
+
+notice:
+  label: "Available Now"
+  text: "GearConnect is live! Download the app and start connecting with the motorsport community today."
+
+performanceTracking:
+  title: "Performance Tracking"
+  description: "Log your lap times, race results and track your progress"
+  items:
+    - "Lap time recording"
+    - "Performance history"
+    - "Detailed statistics"
+    - "Share your best results"
+    - "Progress tracking over time"
+  ctaText: "Download App"
+  imageSrc: "/images/carInside.jpg"
+  imageAlt: "Performance tracking system"
+
+socialNetwork:
+  title: "Social Network"
+  description: "Share your moments, connect with the community and discover events"
+  items:
+    - "Posts with photos and videos"
+    - "Motorsport event discovery"
+    - "Connect with other enthusiasts"
+    - "Likes, comments and shares"
+    - "Build your network"
+  ctaText: "Download App"
+  imageSrc: "/images/reunions.jpg"
+  imageAlt: "Industry professional community"
+
+whyGearConnect:
+  title: "Why GearConnect?"
+  description: "The all-in-one platform for motorsport enthusiasts to share, connect, and grow their racing network"
+  items:
+    - title: "Share Your Passion"
+      description: "Share your racing moments, achievements, and experiences with a community that understands your passion for motorsport."
+      icon: "target"
+    
+    - title: "Track Your Progress"
+      description: "Log your performances, track your improvements, and showcase your achievements to build your racing profile."
+      icon: "rocket"
+    
+    - title: "Build Your Network"
+      description: "Connect with fellow enthusiasts, discover events, find opportunities, and grow your presence in the motorsport world."
+      icon: "handshake"
+
+keyFeatures:
+  title: "All the Features You Need"
+  description: "Everything in one place to help you connect, share, and grow in the motorsport community"
+  items:
+    - title: "Social Feed"
+      description: "Share posts, photos, and videos. Engage with the community through likes and comments."
+      icon: "phone"
+    
+    - title: "Performance Tracking"
+      description: "Log your lap times, race results, and track your progress over time."
+      icon: "chart"
+    
+    - title: "Events"
+      description: "Discover motorsport events near you, create your own, and connect with participants."
+      icon: "calendar"
+    
+    - title: "Opportunities"
+      description: "Find job offers and career opportunities in the motorsport industry."
+      icon: "briefcase"
+
+cta:
+  title: "Ready to Connect Your Passion with Ambition?"
+  description: "Download GearConnect today and join thousands of motorsport enthusiasts sharing their passion, tracking performances, and building their racing network."
+  buttonText: "Download Now"

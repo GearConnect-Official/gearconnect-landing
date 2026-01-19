@@ -1,4 +1,3 @@
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -22,7 +21,7 @@ export default function FeatureSection({
   reverse = false 
 }: FeatureSectionProps) {
   return (
-    <div className={reverse ? "feature-row-reverse" : "feature-row"}>
+    <div className={`${reverse ? "feature-row-reverse" : "feature-row"} animate-fade-in-up`}>
       <div className={reverse ? "feature-content-right" : "feature-content"}>
         <h2 className="feature-title">{title}</h2>
         <p className="feature-description">{description}</p>
@@ -45,7 +44,7 @@ export default function FeatureSection({
             </li>
           ))}
         </ul>
-        <Link href="/#waitlist" className="feature-cta">
+        <Link href="/#download" className="feature-cta">
           {ctaText}
         </Link>
       </div>

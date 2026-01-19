@@ -1,65 +1,35 @@
 import Link from "next/link";
+import { getFAQContent } from "@/lib/content";
+import { getLanguage } from "@/lib/get-language";
 
-export default function FAQ() {
-  const faqData = [
-    {
-      question: "What is the GearConnect program?",
-      answer: "Our program is an exclusive community where racing pilots help us build the first career acceleration platform for motorsport. Members get early access to features and help shape the platform's development."
-    },
-    {
-      question: "How does the program work?",
-      answer: "As a member, you'll test early features, provide feedback, and help us understand what pilots need most. We're building the platform together based on real user input and racing community insights."
-    },
-    {
-      question: "When will the full platform launch?",
-      answer: "We're focused on building the right features. The timeline depends on community feedback and development progress. Members will be the first to access the full platform when it's ready."
-    },
-    {
-      question: "Is the program free?",
-      answer: "Yes, the program is completely free. We're looking for dedicated pilots who want to help build the future of racing career development, not paying customers at this stage."
-    },
-    {
-      question: "How can I provide feedback?",
-      answer: "You can share feedback using the contact form, through our community channels, or directly with our development team. Your input directly influences what we build next."
-    },
-    {
-      question: "What kind of performances can I track?",
-      answer: "You'll be able to log lap times, race results, championship standings, personal bests, and improvements across different tracks and racing categories."
-    },
-    {
-      question: "Who will see my performance data?",
-      answer: "Only verified teams, sponsors, and mentors in our community will have access to performance data. You control your privacy settings and can choose what to share."
-    },
-    {
-      question: "Do I need to be a professional racer to join?",
-      answer: "No! We welcome pilots at all levels - from karting enthusiasts to professional racers. Our platform is designed to help talent at every stage get discovered."
-    }
-  ];
+export default async function FAQ() {
+  const lang = await getLanguage();
+  const content = getFAQContent(lang);
 
   return (
     <main>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-indigo-700 to-blue-700 text-white py-20">
+      <section className="bg-gradient-to-r from-[#E53935] to-[#C62828] text-white py-12 sm:py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-6">
-            Frequently Asked Questions
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 sm:mb-6 break-words">
+            {content.hero.title}
           </h1>
-          <p className="text-xl text-indigo-100 mb-8">
-            Everything you need to know about GearConnect and our Early Access program
+          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 font-medium break-words">
+            {content.hero.description}
           </p>
         </div>
       </section>
 
       {/* FAQ Content */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-8">
-            {faqData.map((faq, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6 border-l-4 border-indigo-600">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+          <div className="space-y-6 sm:space-y-8">
+            {content.questions.map((faq, index) => (
+              <div key={index} className="bg-white rounded-lg p-4 sm:p-6 md:p-8 border-l-4 shadow-md hover:shadow-lg transform hover:-translate-x-1 transition-all duration-300 ease-out min-w-0" style={{ borderColor: '#E53935' }}>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3 break-words" style={{ color: '#1E232C' }}>
                   {faq.question}
                 </h3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-sm sm:text-base font-medium leading-relaxed break-words" style={{ color: '#474C54' }}>
                   {faq.answer}
                 </p>
               </div>
@@ -67,26 +37,26 @@ export default function FAQ() {
           </div>
 
           {/* Additional Help */}
-          <div className="mt-16 text-center">
-            <div className="bg-indigo-50 rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Still have questions?
+          <div className="mt-12 sm:mt-16 text-center">
+            <div className="bg-[#FFF5F5] rounded-lg p-6 sm:p-8">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 break-words" style={{ color: '#1E232C' }}>
+                {content.help.title}
               </h3>
-              <p className="text-gray-600 mb-6">
-                Our team is here to help. Get in touch and we'll respond as quickly as possible.
+              <p className="text-sm sm:text-base font-medium mb-4 sm:mb-6 break-words" style={{ color: '#474C54' }}>
+                {content.help.description}
               </p>
-              <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+              <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
                 <Link 
-                  href="/contact" 
-                  className="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg font-medium transition-colors duration-200"
+                  href={content.help.contactLink} 
+                  className="bg-[#E53935] hover:bg-[#C62828] text-white py-2.5 sm:py-3 px-5 sm:px-6 rounded-lg text-sm sm:text-base font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 ease-out text-center whitespace-nowrap"
                 >
-                  Contact Us
+                  {content.help.contactButton}
                 </Link>
                 <Link 
-                  href="/#waitlist" 
-                  className="bg-white text-indigo-600 border border-indigo-600 hover:bg-indigo-50 py-3 px-6 rounded-lg font-medium transition-colors duration-200"
+                  href={content.help.downloadLink} 
+                  className="bg-white text-[#E53935] border-2 border-[#E53935] hover:bg-[#FFF5F5] hover:border-[#C62828] py-2.5 sm:py-3 px-5 sm:px-6 rounded-lg text-sm sm:text-base font-semibold transition-all duration-300 ease-out text-center whitespace-nowrap"
                 >
-                  Join Early Access
+                  {content.help.downloadButton}
                 </Link>
               </div>
             </div>

@@ -1,0 +1,31 @@
+hero:
+  title: "Terms of Use"
+  description: "Last updated: January 2025"
+
+sections:
+  - title: "Agreement to Terms"
+    content: "By accessing or using GearConnect, you agree to be bound by these Terms of Use. If you disagree with any part of these terms, you may not access the service."
+  
+  - title: "Use of the Service"
+    content: "You must be at least 13 years old to use GearConnect. You agree to use the service only for lawful purposes and in accordance with these Terms. You are responsible for maintaining the confidentiality of your account and password."
+  
+  - title: "User Content"
+    content: "You retain ownership of any content you post on GearConnect. By posting content, you grant us a license to use, display, and distribute your content on the platform. You are solely responsible for the content you post and must ensure it does not violate any laws or infringe on the rights of others."
+  
+  - title: "Prohibited Activities"
+    content: "You agree not to use GearConnect to: post illegal, harmful, or offensive content; harass, abuse, or harm other users; impersonate others; spam or send unsolicited messages; violate any applicable laws or regulations."
+  
+  - title: "Intellectual Property"
+    content: "The GearConnect service, including its original content, features, and functionality, is owned by GearConnect and is protected by international copyright, trademark, and other intellectual property laws."
+  
+  - title: "Termination"
+    content: "We may terminate or suspend your account immediately, without prior notice, for conduct that we believe violates these Terms or is harmful to other users, us, or third parties."
+  
+  - title: "Limitation of Liability"
+    content: "GearConnect is provided 'as is' without warranties of any kind. We shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the service."
+  
+  - title: "Changes to Terms"
+    content: "We reserve the right to modify these Terms at any time. We will notify users of any material changes. Your continued use of the service after such modifications constitutes acceptance of the updated Terms."
+  
+  - title: "Contact Us"
+    content: "If you have any questions about these Terms of Use, please contact us at contact@gearconnect.fr"

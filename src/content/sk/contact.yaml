@@ -1,0 +1,75 @@
+hero:
+  title: "Contact Us"
+  description: "Have questions? We're here to help"
+
+form:
+  title: "Send us a message"
+  description: "We'll get back to you as soon as possible"
+  submitButton: "Send"
+  fields:
+    firstName:
+      label: "First Name"
+      placeholder: "Your first name"
+    lastName:
+      label: "Last Name"
+      placeholder: "Your last name"
+    email:
+      label: "Email"
+      placeholder: "contact@gearconnect.fr"
+    vehicle:
+      label: "Your vehicle (optional)"
+      placeholder: "Make, model and year"
+    subject:
+      label: "Subject"
+      placeholder: "Select a subject"
+      options:
+        - value: ""
+          label: "Select a subject"
+        - value: "support"
+          label: "Technical Support"
+        - value: "feedback"
+          label: "Feedback"
+        - value: "partnership"
+          label: "Partnership Proposal"
+        - value: "events"
+          label: "Event Organization"
+        - value: "other"
+          label: "Other"
+    message:
+      label: "Message"
+      placeholder: "Describe your request in detail..."
+    privacy:
+      label: "I agree that GearConnect may use my data in accordance with the privacy policy."
+
+info:
+  title: "Contact Information"
+  description: "Multiple ways to reach us"
+  email:
+    title: "Email"
+    address: "contact@gearconnect.fr"
+    description: "Our team responds within 24 hours"
+  social:
+    title: "Social Media"
+
+faq:
+  title: "Frequently Asked Questions"
+  items:
+    - question: "What is GearConnect?"
+      answer: "GearConnect is the social network for motorsport enthusiasts. Share your passion, track your performances, connect with the community, and accelerate your racing career. Connect Passion with Ambition."
+    
+    - question: "How does GearConnect work?"
+      answer: "Download the app and create your profile. Share posts and photos, track your racing performances, discover events, connect with fellow enthusiasts, and find opportunities in the motorsport world."
+    
+    - question: "Is GearConnect free?"
+      answer: "Yes, GearConnect is completely free to download and use. Join thousands of motorsport enthusiasts sharing their passion and building their racing network."
+    
+    - question: "What features are available?"
+      answer: "GearConnect includes a social feed for sharing posts, performance tracking for logging your racing achievements, event discovery and creation, networking features, and job opportunities in motorsport."
+    
+    - question: "How can I provide feedback?"
+      answer: "We love hearing from our community! You can share feedback using the contact form on this page, through our social media channels, or directly through the app. Your input helps us improve GearConnect."
+
+cta:
+  text: "Ready to join the community?"
+  buttonText: "Download App"
+  link: "/#download"

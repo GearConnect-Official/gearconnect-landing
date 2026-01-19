@@ -5,61 +5,29 @@ import FeaturesHero from "../components/feature/FeaturesHero";
 import FeatureSection from "../components/feature/FeatureSection";
 import FeaturesCta from "../components/feature/FeaturesCta";
 
+import { getFeaturesContent } from "@/lib/content";
+import { getLanguage } from "@/lib/get-language";
+
 export default async function Features() {
-  // Static content for Career Acceleration Platform
-  const hero = {
-    title: "How You Get Discovered",
-    description: "See how our performance tracking system makes you visible to the motorsport community that can accelerate your career"
-  };
-  
-  const tracking = {
-    title: "Performance Tracking That Will Get You Noticed",
-    description: "We're developing a system that will capture and showcase your best performances to industry professionals",
-    features: [
-      "Quick and intuitive lap time and performance logging",
-      "Standout achievement highlighting system", 
-      "Performance trend visualization tools",
-      "Professional-grade statistics display",
-      "Real-time performance feed updates"
-    ],
-    ctaText: "Join Development"
-  };
-  
-  const community = {
-    title: "Industry Community We're Building",
-    description: "Help us create connections with teams, sponsors, and mentors who want to discover new talent",
-    features: [
-      "Team managers interested in scouting drivers",
-      "Sponsors seeking promising talent to support",
-      "Experienced mentors ready to offer guidance",
-      "Racing community engagement features",
-      "Direct opportunity notification system"
-    ],
-    ctaText: "Join Development"
-  };
-  
-  const cta = {
-    title: "Ready to help shape the future of racing careers?",
-    description: "Join our community where we're building the platform that will showcase track performances you log to teams, sponsors, and mentors looking for talent like yours.",
-    buttonText: "Join Development"
-  };
+  const lang = await getLanguage();
+  const content = getFeaturesContent(lang);
 
   return (
     <main>
       {/* Hero Section */}
       <FeaturesHero 
-        title={hero.title} 
-        description={hero.description} 
+        title={content.hero.title} 
+        description={content.hero.description} 
       />
 
-      {/* Community Notice */}
-      <section className="bg-yellow-50 py-8">
+      {/* App Available Notice */}
+      <section className="py-6 sm:py-8" style={{ backgroundColor: '#FFF5F5' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-yellow-100 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+          <div className="bg-white border-l-4 p-4 sm:p-6 rounded-r-lg shadow-md" style={{ borderColor: '#E53935' }}>
             <div className="flex">
               <div className="ml-3">
-                <p className="text-sm text-yellow-800">
-                  <strong>Community:</strong> Join the exclusive platform where racing performances get discovered by teams, sponsors, and mentors actively looking for new talent.
+                <p className="text-sm sm:text-base font-medium" style={{ color: '#474C54' }}>
+                  <strong style={{ color: '#E53935' }}>{content.notice.label}:</strong> {content.notice.text}
                 </p>
               </div>
             </div>
@@ -72,102 +40,85 @@ export default async function Features() {
         <div className="features-grid-container">
           {/* Feature 1 - Performance Tracking */}
           <FeatureSection
-            title={tracking.title}
-            description={tracking.description}
-            features={tracking.features}
-            ctaText={tracking.ctaText}
-            imageSrc="/images/carInside.jpg"
-            imageAlt="Performance tracking system"
+            title={content.performanceTracking.title}
+            description={content.performanceTracking.description}
+            features={content.performanceTracking.items}
+            ctaText={content.performanceTracking.ctaText}
+            imageSrc={content.performanceTracking.imageSrc}
+            imageAlt={content.performanceTracking.imageAlt}
           />
 
           {/* Feature 2 - Community Discovery */}
           <FeatureSection
-            title={community.title}
-            description={community.description}
-            features={community.features}
-            ctaText={community.ctaText}
-            imageSrc="/images/reunions.jpg"
-            imageAlt="Industry professional community"
+            title={content.socialNetwork.title}
+            description={content.socialNetwork.description}
+            features={content.socialNetwork.items}
+            ctaText={content.socialNetwork.ctaText}
+            imageSrc={content.socialNetwork.imageSrc}
+            imageAlt={content.socialNetwork.imageAlt}
             reverse={true}
           />
         </div>
       </section>
 
-      {/* Vision & Goals */}
-      <section className="py-20 bg-indigo-50">
+      {/* Why GearConnect */}
+      <section className="py-12 sm:py-16 md:py-20" style={{ backgroundColor: '#F7F8F9' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Vision</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We&apos;re building the future of racing career development. Join our community to help shape a platform that gives talented pilots the visibility they deserve.
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 break-words" style={{ color: '#1E232C' }}>{content.whyGearConnect.title}</h2>
+            <p className="text-base sm:text-lg md:text-xl font-medium max-w-3xl mx-auto break-words" style={{ color: '#474C54' }}>
+              {content.whyGearConnect.description}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <div className="bg-yellow-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">🎯</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Our Goal</h3>
-              <p className="text-gray-600">Build the first platform that showcases racing talent to industry professionals actively seeking new pilots through easy performance logging.</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <div className="bg-indigo-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">🚀</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Exclusive Access</h3>
-              <p className="text-gray-600">Community members get exclusive access to features and help shape the platform&apos;s development based on real pilot needs.</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <div className="bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">🤝</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Community First</h3>
-              <p className="text-gray-600">We&apos;re starting with a focused community of dedicated pilots and industry professionals who believe in merit-based discovery.</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {content.whyGearConnect.items.map((item, index) => (
+              <div key={index} className="bg-white p-6 sm:p-8 rounded-lg shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-out text-center">
+                <div className={`${index === 0 ? 'bg-yellow-500' : index === 1 ? 'bg-[#E53935]' : 'bg-green-500'} text-white w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold mx-auto mb-4 transform hover:scale-110 transition-transform duration-300`}>
+                  {item.icon === 'target' && '🎯'}
+                  {item.icon === 'rocket' && '🚀'}
+                  {item.icon === 'handshake' && '🤝'}
+                </div>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 break-words" style={{ color: '#1E232C' }}>{item.title}</h3>
+                <p className="text-sm sm:text-base font-medium break-words" style={{ color: '#474C54' }}>{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Development Roadmap */}
-      <section className="py-20 bg-white">
+      {/* Key Features */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Development Roadmap</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Here&apos;s what we&apos;re building together to create the future of racing career discovery
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 break-words" style={{ color: '#1E232C' }}>{content.keyFeatures.title}</h2>
+            <p className="text-base sm:text-lg md:text-xl font-medium max-w-3xl mx-auto break-words" style={{ color: '#474C54' }}>
+              {content.keyFeatures.description}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center text-indigo-700 font-bold mx-auto mb-4">1</div>
-              <h3 className="font-semibold text-gray-900 mb-2">Performance Tracking</h3>
-              <p className="text-sm text-gray-600">We&apos;ll develop systems to make it quick and intuitive for you to log and highlight your best racing performances</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center text-indigo-700 font-bold mx-auto mb-4">2</div>
-              <h3 className="font-semibold text-gray-900 mb-2">Industry Network</h3>
-              <p className="text-sm text-gray-600">Build a curated community of teams, sponsors, and mentors actively looking for talent</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center text-indigo-700 font-bold mx-auto mb-4">3</div>
-              <h3 className="font-semibold text-gray-900 mb-2">Smart Matching</h3>
-              <p className="text-sm text-gray-600">Create intelligent systems that connect promising pilots with relevant opportunities</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center text-indigo-700 font-bold mx-auto mb-4">4</div>
-              <h3 className="font-semibold text-gray-900 mb-2">Scale Success</h3>
-              <p className="text-sm text-gray-600">Refine and scale the platform based on community feedback to help more pilots succeed</p>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {content.keyFeatures.items.map((item, index) => (
+              <div key={index} className="text-center bg-white p-6 rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 ease-out">
+                <div className="bg-[#FFF5F5] w-12 h-12 rounded-full flex items-center justify-center text-[#E53935] font-bold mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
+                  {item.icon === 'phone' && '📱'}
+                  {item.icon === 'chart' && '📊'}
+                  {item.icon === 'calendar' && '🎉'}
+                  {item.icon === 'briefcase' && '💼'}
+                </div>
+                <h3 className="text-sm sm:text-base font-semibold mb-2 break-words" style={{ color: '#1E232C' }}>{item.title}</h3>
+                <p className="text-xs sm:text-sm font-medium break-words" style={{ color: '#474C54' }}>{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <FeaturesCta
-        title={cta.title}
-        description={cta.description}
-        buttonText={cta.buttonText}
+        title={content.cta.title}
+        description={content.cta.description}
+        buttonText={content.cta.buttonText}
       />
     </main>
   );
