@@ -1,0 +1,8 @@
+/* Language Switcher Styles */
+.language-option {
+  color: var(--text-primary);
+}
+
+.language-option-active {
+  color: var(--primary-red);
+}

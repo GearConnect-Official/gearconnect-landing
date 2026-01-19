@@ -18,8 +18,8 @@ export default function AppScreenshot({ src, alt }: AppScreenshotProps) {
           <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto mb-2 sm:mb-3 bg-[#E53935] rounded-full flex items-center justify-center">
             <span className="text-white text-sm sm:text-base md:text-lg font-bold">GC</span>
           </div>
-          <p className="text-gray-600 text-[10px] sm:text-xs font-medium">Screenshot: {alt}</p>
-          <p className="text-gray-500 text-[9px] sm:text-[10px] mt-1 break-all px-2">{src}</p>
+          <p className="text-[10px] sm:text-xs font-medium text-secondary">Screenshot: {alt}</p>
+          <p className="text-[9px] sm:text-[10px] mt-1 break-all px-2 text-tertiary">{src}</p>
         </div>
       </div>
     );

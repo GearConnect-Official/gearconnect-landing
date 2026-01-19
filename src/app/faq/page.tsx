@@ -25,11 +25,11 @@ export default async function FAQ() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-6 sm:space-y-8">
             {content.questions.map((faq, index) => (
-              <div key={index} className="bg-white rounded-lg p-4 sm:p-6 md:p-8 border-l-4 shadow-md hover:shadow-lg transform hover:-translate-x-1 transition-all duration-300 ease-out min-w-0" style={{ borderColor: '#E53935' }}>
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3 break-words" style={{ color: '#1E232C' }}>
+              <div key={index} className="bg-white rounded-lg p-4 sm:p-6 md:p-8 border-l-4 shadow-md hover:shadow-lg transform hover:-translate-x-1 transition-all duration-300 ease-out min-w-0 border-brand">
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3 break-words text-primary">
                   {faq.question}
                 </h3>
-                <p className="text-sm sm:text-base font-medium leading-relaxed break-words" style={{ color: '#474C54' }}>
+                <p className="text-sm sm:text-base font-medium leading-relaxed break-words text-secondary">
                   {faq.answer}
                 </p>
               </div>
@@ -39,10 +39,10 @@ export default async function FAQ() {
           {/* Additional Help */}
           <div className="mt-12 sm:mt-16 text-center">
             <div className="bg-[#FFF5F5] rounded-lg p-6 sm:p-8">
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 break-words" style={{ color: '#1E232C' }}>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 break-words text-primary">
                 {content.help.title}
               </h3>
-              <p className="text-sm sm:text-base font-medium mb-4 sm:mb-6 break-words" style={{ color: '#474C54' }}>
+              <p className="text-sm sm:text-base font-medium mb-4 sm:mb-6 break-words text-secondary">
                 {content.help.description}
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">

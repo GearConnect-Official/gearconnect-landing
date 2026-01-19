@@ -21,13 +21,13 @@ export default async function Features() {
       />
 
       {/* App Available Notice */}
-      <section className="py-6 sm:py-8" style={{ backgroundColor: '#FFF5F5' }}>
+      <section className="py-6 sm:py-8 bg-light-red">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white border-l-4 p-4 sm:p-6 rounded-r-lg shadow-md" style={{ borderColor: '#E53935' }}>
+          <div className="bg-white border-l-4 p-4 sm:p-6 rounded-r-lg shadow-md border-brand">
             <div className="flex">
               <div className="ml-3">
-                <p className="text-sm sm:text-base font-medium" style={{ color: '#474C54' }}>
-                  <strong style={{ color: '#E53935' }}>{content.notice.label}:</strong> {content.notice.text}
+                <p className="text-sm sm:text-base font-medium text-secondary">
+                  <strong className="text-brand">{content.notice.label}:</strong> {content.notice.text}
                 </p>
               </div>
             </div>
@@ -62,11 +62,11 @@ export default async function Features() {
       </section>
 
       {/* Why GearConnect */}
-      <section className="py-12 sm:py-16 md:py-20" style={{ backgroundColor: '#F7F8F9' }}>
+      <section className="py-12 sm:py-16 md:py-20 bg-grey-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 break-words" style={{ color: '#1E232C' }}>{content.whyGearConnect.title}</h2>
-            <p className="text-base sm:text-lg md:text-xl font-medium max-w-3xl mx-auto break-words" style={{ color: '#474C54' }}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 break-words text-primary">{content.whyGearConnect.title}</h2>
+            <p className="text-base sm:text-lg md:text-xl font-medium max-w-3xl mx-auto break-words text-secondary">
               {content.whyGearConnect.description}
             </p>
           </div>
@@ -79,8 +79,8 @@ export default async function Features() {
                   {item.icon === 'rocket' && '🚀'}
                   {item.icon === 'handshake' && '🤝'}
                 </div>
-                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 break-words" style={{ color: '#1E232C' }}>{item.title}</h3>
-                <p className="text-sm sm:text-base font-medium break-words" style={{ color: '#474C54' }}>{item.description}</p>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 break-words text-primary">{item.title}</h3>
+                <p className="text-sm sm:text-base font-medium break-words text-secondary">{item.description}</p>
               </div>
             ))}
           </div>
@@ -91,8 +91,8 @@ export default async function Features() {
       <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 break-words" style={{ color: '#1E232C' }}>{content.keyFeatures.title}</h2>
-            <p className="text-base sm:text-lg md:text-xl font-medium max-w-3xl mx-auto break-words" style={{ color: '#474C54' }}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 break-words text-primary">{content.keyFeatures.title}</h2>
+            <p className="text-base sm:text-lg md:text-xl font-medium max-w-3xl mx-auto break-words text-secondary">
               {content.keyFeatures.description}
             </p>
           </div>
@@ -106,8 +106,8 @@ export default async function Features() {
                   {item.icon === 'calendar' && '🎉'}
                   {item.icon === 'briefcase' && '💼'}
                 </div>
-                <h3 className="text-sm sm:text-base font-semibold mb-2 break-words" style={{ color: '#1E232C' }}>{item.title}</h3>
-                <p className="text-xs sm:text-sm font-medium break-words" style={{ color: '#474C54' }}>{item.description}</p>
+                <h3 className="text-sm sm:text-base font-semibold mb-2 break-words text-primary">{item.title}</h3>
+                <p className="text-xs sm:text-sm font-medium break-words text-secondary">{item.description}</p>
               </div>
             ))}
           </div>

@@ -10,9 +10,44 @@
   --racing-red: #E10600;
   --text-primary: #1E232C;
   --text-secondary: #474C54;
+  --text-tertiary: #6A707C;
   --grey-50: #F7F8F9;
   --grey-100: #E8ECF4;
   --grey-200: #DAE0E6;
+  --bg-light-red: #FFF5F5;
+}
+
+/* Utility Classes for Colors */
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.text-brand {
+  color: var(--primary-red);
+}
+
+.bg-brand {
+  background-color: var(--primary-red);
+}
+
+.bg-brand-dark {
+  background-color: var(--primary-red-dark);
+}
+
+.bg-light-red {
+  background-color: var(--bg-light-red);
+}
+
+.border-grey {
+  border-color: var(--grey-200);
 }
 
 @theme inline {
@@ -119,3 +154,15 @@ html {
   background-size: 200% 200%;
   animation: gradient-shift 3s ease infinite;
 }
+
+/* Import component styles */
+@import '../styles/utilities.css';
+@import '../styles/components/navbar.css';
+@import '../styles/components/auth.css';
+@import '../styles/components/dashboard.css';
+@import '../styles/components/home.css';
+@import '../styles/components/page.css';
+@import '../styles/components/app-screenshot.css';
+@import '../styles/components/contact.css';
+@import '../styles/components/language-switcher.css';
+@import '../styles/components/terms.css';

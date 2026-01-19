@@ -1,30 +1,48 @@
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
 import { supportedLanguages, defaultLanguage, type Language } from './lib/i18n';
 
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+// Routes protégées nécessitant une authentification
+const isProtectedRoute = createRouteMatcher([
+  '/dashboard(.*)',
+  '/account(.*)',
+  '/support(.*)',
+]);
+
+// Middleware combiné pour Clerk et i18n
+export default clerkMiddleware(async (auth, req) => {
+  const { pathname } = req.nextUrl;
   
-  // Check if pathname already has a language prefix
+  // Gestion de l'authentification pour les routes protégées
+  if (isProtectedRoute(req)) {
+    const { userId } = await auth();
+    
+    if (!userId) {
+      const signInUrl = new URL('/auth/login', req.url);
+      signInUrl.searchParams.set('redirect_url', pathname);
+      return NextResponse.redirect(signInUrl);
+    }
+  }
+  
+  // Gestion de la langue (i18n)
   const pathnameHasLocale = supportedLanguages.some(
     (lang) => pathname.startsWith(`/${lang}/`) || pathname === `/${lang}`
   );
   
-  // Get language from query param (highest priority), cookie, or header
   let locale: Language = defaultLanguage;
   
   // Check query parameter first (for language switching)
-  const langParam = request.nextUrl.searchParams.get('lang');
+  const langParam = req.nextUrl.searchParams.get('lang');
   if (langParam && supportedLanguages.includes(langParam as Language)) {
     locale = langParam as Language;
   } else {
     // Check cookie (for persistent language preference)
-    const langCookie = request.cookies.get('lang')?.value;
+    const langCookie = req.cookies.get('lang')?.value;
     if (langCookie && supportedLanguages.includes(langCookie as Language)) {
       locale = langCookie as Language;
     } else {
       // Check Accept-Language header (for initial detection)
-      const acceptLanguage = request.headers.get('accept-language');
+      const acceptLanguage = req.headers.get('accept-language');
       if (acceptLanguage) {
         const languages = acceptLanguage
           .split(',')
@@ -55,7 +73,7 @@ export function middleware(request: NextRequest) {
   });
   
   return response;
-}
+});
 
 export const config = {
   matcher: [

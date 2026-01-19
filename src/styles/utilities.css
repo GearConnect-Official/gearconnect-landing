@@ -1,0 +1,73 @@
+/* Utility Classes - Colors, Borders, Backgrounds */
+
+/* Text Colors */
+.text-primary {
+  color: var(--text-primary) !important;
+}
+
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.text-tertiary {
+  color: var(--text-tertiary) !important;
+}
+
+.text-brand {
+  color: var(--primary-red) !important;
+}
+
+/* Background Colors */
+.bg-brand {
+  background-color: var(--primary-red) !important;
+}
+
+.bg-brand-dark {
+  background-color: var(--primary-red-dark) !important;
+}
+
+.bg-light-red {
+  background-color: var(--bg-light-red) !important;
+}
+
+.bg-grey-50 {
+  background-color: var(--grey-50) !important;
+}
+
+/* Border Colors */
+.border-grey {
+  border-color: var(--grey-200) !important;
+}
+
+.border-brand {
+  border-color: var(--primary-red) !important;
+}
+
+/* Animation Delays */
+.animation-delay-1s {
+  animation-delay: 1s;
+}
+
+.animation-delay-1-5s {
+  animation-delay: 1.5s;
+}
+
+.animation-delay-0-2s {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-0-1s {
+  animation-delay: 0.1s;
+}
+
+.animation-delay-0-3s {
+  animation-delay: 0.3s;
+}
+
+.animation-delay-0-4s {
+  animation-delay: 0.4s;
+}
+
+.animation-fill-both {
+  animation-fill-mode: both;
+}

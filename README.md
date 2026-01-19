@@ -1,68 +1,375 @@
 # GearConnect Landing Page
 
-Landing page officielle de GearConnect, développée avec Next.js et déployée sur Vercel.
+<div align="center">
 
-## Configuration du projet
+**Landing page officielle de GearConnect - Connect Passion with Ambition**
 
-### Prérequis
-- Node.js
-- npm ou yarn
-- Compte Vercel
+[![Next.js](https://img.shields.io/badge/Next.js-15.2-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38bdf8?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=flat-square&logo=vercel)](https://vercel.com/)
 
-### Installation
+</div>
+
+## 📋 Table des matières
+
+- [À propos](#-à-propos)
+- [Fonctionnalités](#-fonctionnalités)
+- [Technologies](#-technologies)
+- [Prérequis](#-prérequis)
+- [Installation](#-installation)
+- [Configuration](#-configuration)
+- [Développement](#-développement)
+- [Déploiement](#-déploiement)
+- [Structure du projet](#-structure-du-projet)
+- [Architecture](#-architecture)
+- [Internationalisation](#-internationalisation)
+- [Authentification](#-authentification)
+- [Scripts disponibles](#-scripts-disponibles)
+- [Documentation](#-documentation)
+
+## 🎯 À propos
+
+GearConnect Landing Page est la plateforme web officielle de **GearConnect**, une application mobile dédiée à la communauté du sport automobile. Cette landing page présente l'application, ses fonctionnalités principales, et permet aux utilisateurs de télécharger l'application et de contacter l'équipe.
+
+### Mission
+
+Connecter la passion du sport automobile avec l'ambition de développer sa carrière dans ce domaine.
+
+## ✨ Fonctionnalités
+
+### 🌐 Internationalisation (i18n)
+- Support de **22 langues européennes**
+- Détection automatique de la langue via les headers HTTP
+- Sélecteur de langue persistant
+- Contenu externalisé dans des fichiers YAML
+
+### 🔐 Authentification
+- Intégration avec **Clerk** pour l'authentification
+- Pages de connexion, inscription et réinitialisation de mot de passe personnalisées
+- Dashboard utilisateur avec accès aux conversations
+- Synchronisation avec le backend Express
+
+### 📱 Pages principales
+- **Page d'accueil** : Hero section, features, statistiques, section de téléchargement
+- **Features** : Présentation détaillée des fonctionnalités de l'application
+- **FAQ** : Questions fréquentes
+- **Contact** : Formulaire de contact avec validation
+- **Dashboard** : Espace utilisateur authentifié
+- **Privacy Policy** & **Terms of Use** : Pages légales
+
+### 🎨 Design System
+- Design Aesthetic (DA) aligné avec l'application mobile
+- Palette de couleurs cohérente (rouge GearConnect)
+- Animations et transitions fluides
+- Responsive design (mobile-first)
+- Styles externalisés dans des fichiers CSS modulaires
+
+### 📊 Analytics & Performance
+- Vercel Analytics intégré
+- Speed Insights pour le monitoring des performances
+- Optimisation des images avec Next.js Image
+- Lazy loading et code splitting automatique
+
+## 🛠 Technologies
+
+### Core
+- **[Next.js 15.2](https://nextjs.org/)** - Framework React avec App Router
+- **[React 19](https://react.dev/)** - Bibliothèque UI
+- **[TypeScript 5](https://www.typescriptlang.org/)** - Typage statique
+- **[Tailwind CSS 4](https://tailwindcss.com/)** - Framework CSS utility-first
+
+### Authentification & Backend
+- **[Clerk](https://clerk.com/)** - Service d'authentification
+- **[Prisma](https://www.prisma.io/)** - ORM pour la base de données
+
+### Internationalisation
+- **[js-yaml](https://github.com/nodeca/js-yaml)** - Parsing des fichiers YAML
+- Middleware Next.js pour la détection de langue
+
+### Déploiement & Monitoring
+- **[Vercel](https://vercel.com/)** - Hébergement et déploiement
+- **[Vercel Analytics](https://vercel.com/analytics)** - Analytics
+- **[Speed Insights](https://vercel.com/speed-insights)** - Monitoring des performances
+
+## 📦 Prérequis
+
+- **Node.js** >= 18.0.0
+- **npm** >= 9.0.0 ou **yarn** >= 1.22.0
+- Compte **Vercel** (pour le déploiement)
+- Compte **Clerk** (pour l'authentification)
+
+## 🚀 Installation
+
 ```bash
+# Cloner le repository
+git clone <repository-url>
+cd gearconnect-landing
+
 # Installer les dépendances
 npm install
 
-# Lancer le serveur de développement
-npm run dev
+# Générer le client Prisma (exécuté automatiquement via postinstall)
+npm run postinstall
 ```
 
-### Déploiement
-Le projet est configuré pour un déploiement automatique sur Vercel. Les paramètres de déploiement sont :
+## ⚙️ Configuration
 
-- **Build Command**: `next build`
+### Variables d'environnement
+
+Créez un fichier `.env.local` à la racine du projet :
+
+```env
+# Clerk Authentication
+CLERK_PUBLISHABLE_KEY=pk_test_...
+CLERK_SECRET_KEY=sk_test_...
+
+# Backend API
+BACKEND_URL=http://localhost:3001
+
+# Next.js
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_...
+```
+
+> **Note** : `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` est automatiquement mappé depuis `CLERK_PUBLISHABLE_KEY` dans `next.config.ts`
+
+### Configuration Clerk
+
+1. Créez un compte sur [Clerk](https://clerk.com/)
+2. Créez une nouvelle application
+3. Copiez les clés API dans votre `.env.local`
+4. Configurez les URLs de redirection dans le dashboard Clerk :
+   - Sign-in URL: `http://localhost:3000/auth/login`
+   - Sign-up URL: `http://localhost:3000/auth/register`
+
+## 💻 Développement
+
+```bash
+# Lancer le serveur de développement avec Turbopack
+npm run dev
+
+# Le site sera accessible sur http://localhost:3000
+```
+
+### Commandes disponibles
+
+```bash
+# Développement
+npm run dev          # Serveur de développement avec Turbopack
+
+# Build
+npm run build        # Build de production (génère Prisma + Next.js)
+npm run start        # Démarrer le serveur de production
+
+# Qualité de code
+npm run lint         # Linter ESLint
+
+# Prisma
+npm run postinstall  # Générer le client Prisma (automatique après npm install)
+```
+
+## 🚢 Déploiement
+
+### Déploiement sur Vercel
+
+Le projet est configuré pour un déploiement automatique sur Vercel.
+
+#### Configuration Vercel
+
+- **Build Command**: `npm run build`
 - **Output Directory**: `.next`
 - **Install Command**: `npm install`
-- **Development Command**: `next dev`
+- **Development Command**: `npm run dev`
 - **Root Directory**: `gearconnect-landing`
 
-### Branches
-- `main`: Branche de production
-- Les push sur `main` déclenchent automatiquement un nouveau déploiement
+#### Déploiement automatique
 
-### Monitoring
-- Speed Insights de Vercel est configuré pour suivre les performances du site
-- Les métriques sont disponibles dans le dashboard Vercel
+- Les push sur la branche `main` déclenchent automatiquement un nouveau déploiement
+- Les pull requests créent des preview deployments
 
-## Structure du projet
+#### Variables d'environnement Vercel
+
+Configurez les variables d'environnement suivantes dans le dashboard Vercel :
+
+- `CLERK_PUBLISHABLE_KEY`
+- `CLERK_SECRET_KEY`
+- `BACKEND_URL`
+
+### Déploiement manuel
+
+```bash
+# Build de production
+npm run build
+
+# Démarrer le serveur de production
+npm run start
+```
+
+## 📁 Structure du projet
+
 ```
 gearconnect-landing/
 ├── src/
-│   ├── app/
-│   │   ├── components/
-│   │   ├── features/
-│   │   ├── contact/
-│   │   ├── download/
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-├── public/
-├── package.json
-├── next.config.ts
-└── vercel.json
+│   ├── app/                      # App Router Next.js
+│   │   ├── api/                   # API Routes
+│   │   │   ├── auth/             # Routes d'authentification
+│   │   │   ├── backend/          # Proxy vers le backend Express
+│   │   │   ├── conversations/    # Gestion des conversations
+│   │   │   └── playstore/        # Données Play Store
+│   │   ├── auth/                 # Pages d'authentification
+│   │   │   ├── login/
+│   │   │   ├── register/
+│   │   │   └── forgot-password/
+│   │   ├── components/           # Composants React
+│   │   │   ├── contact/          # Composants de contact
+│   │   │   ├── feature/          # Composants de features
+│   │   │   └── ...               # Autres composants
+│   │   ├── dashboard/            # Dashboard utilisateur
+│   │   ├── contact/              # Page de contact
+│   │   ├── features/             # Page des features
+│   │   ├── faq/                  # Page FAQ
+│   │   ├── privacy/              # Privacy Policy
+│   │   ├── terms/                # Terms of Use
+│   │   ├── layout.tsx            # Layout principal
+│   │   ├── page.tsx              # Page d'accueil
+│   │   └── globals.css           # Styles globaux
+│   ├── content/                  # Contenu internationalisé (YAML)
+│   │   ├── en/                   # Anglais
+│   │   ├── fr/                   # Français
+│   │   ├── de/                   # Allemand
+│   │   └── ...                   # 19 autres langues
+│   ├── lib/                      # Utilitaires
+│   │   ├── content.ts            # Chargement du contenu YAML
+│   │   ├── get-language.ts       # Détection de langue
+│   │   ├── i18n.ts               # Configuration i18n
+│   │   └── prisma.ts             # Client Prisma
+│   ├── middleware.ts             # Middleware Next.js (i18n + auth)
+│   └── styles/                   # Fichiers CSS modulaires
+│       ├── components/           # Styles par composant
+│       └── utilities.css         # Classes utilitaires
+├── public/                        # Assets statiques
+│   ├── images/                   # Images
+│   └── logo.png                  # Logo GearConnect
+├── scripts/                       # Scripts utilitaires
+│   ├── replace-inline-styles.py  # Migration styles inline → CSS
+│   └── fix-duplicate-classnames.py
+├── .env.local                     # Variables d'environnement (gitignored)
+├── next.config.ts                 # Configuration Next.js
+├── package.json                   # Dépendances
+└── README.md                      # Ce fichier
 ```
 
-## Technologies utilisées
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-- Vercel (hébergement et monitoring)
+## 🏗 Architecture
 
-## Variables d'environnement
-Aucune variable d'environnement n'est requise pour le moment.
+### App Router (Next.js 15)
 
-## Documentation
+Le projet utilise le nouveau App Router de Next.js avec :
+- **Server Components** par défaut pour de meilleures performances
+- **Client Components** uniquement quand nécessaire (`"use client"`)
+- **API Routes** pour les endpoints backend
+- **Middleware** pour l'i18n et l'authentification
+
+### Internationalisation
+
+1. **Détection de langue** : Cookie → Query param → Accept-Language header
+2. **Stockage** : Fichiers YAML par langue dans `src/content/{lang}/`
+3. **Chargement** : Fonctions utilitaires dans `src/lib/content.ts`
+4. **Middleware** : Gestion automatique des cookies et redirections
+
+### Authentification
+
+1. **Clerk** : Gestion de l'authentification côté client
+2. **Backend sync** : Synchronisation des utilisateurs avec le backend Express
+3. **Routes protégées** : Middleware pour protéger `/dashboard`, `/account`, etc.
+4. **Custom forms** : Pages d'authentification personnalisées
+
+### Styles
+
+- **CSS modulaire** : Fichiers CSS séparés par composant
+- **Variables CSS** : Palette de couleurs centralisée
+- **Tailwind CSS** : Classes utilitaires pour le layout
+- **Animations** : Keyframes et transitions personnalisées
+
+## 🌍 Internationalisation
+
+### Langues supportées
+
+Le site supporte **22 langues européennes** :
+
+🇬🇧 Anglais (en) | 🇫🇷 Français (fr) | 🇩🇪 Allemand (de) | 🇪🇸 Espagnol (es) | 🇮🇹 Italien (it) | 🇵🇹 Portugais (pt) | 🇳🇱 Néerlandais (nl) | 🇵🇱 Polonais (pl) | 🇷🇺 Russe (ru) | 🇸🇪 Suédois (sv) | 🇩🇰 Danois (da) | 🇫🇮 Finnois (fi) | 🇳🇴 Norvégien (no) | 🇨🇿 Tchèque (cs) | 🇭🇺 Hongrois (hu) | 🇷🇴 Roumain (ro) | 🇬🇷 Grec (el) | 🇹🇷 Turc (tr) | 🇺🇦 Ukrainien (uk) | 🇸🇰 Slovaque (sk) | 🇭🇷 Croate (hr) | 🇧🇬 Bulgare (bg)
+
+### Ajouter une nouvelle langue
+
+1. Créer un dossier `src/content/{lang}/`
+2. Copier les fichiers YAML depuis `src/content/en/`
+3. Traduire le contenu
+4. Ajouter la langue dans `src/lib/i18n.ts`
+
+## 🔐 Authentification
+
+### Flux d'authentification
+
+1. **Inscription** : `/auth/register` → Vérification email → `/dashboard`
+2. **Connexion** : `/auth/login` → `/dashboard`
+3. **Réinitialisation** : `/auth/forgot-password` → Code email → Nouveau mot de passe
+4. **Synchronisation** : Appel automatique à `/api/auth/sync` après authentification
+
+### Routes protégées
+
+Les routes suivantes nécessitent une authentification :
+- `/dashboard`
+- `/account`
+- `/support`
+
+Les utilisateurs non authentifiés sont redirigés vers `/auth/login`.
+
+## 📜 Scripts disponibles
+
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Lance le serveur de développement avec Turbopack |
+| `npm run build` | Build de production (génère Prisma + Next.js) |
+| `npm run start` | Démarre le serveur de production |
+| `npm run lint` | Exécute ESLint pour vérifier le code |
+| `npm run postinstall` | Génère le client Prisma (automatique) |
+
+## 📚 Documentation
+
+### Ressources externes
+
 - [Next.js Documentation](https://nextjs.org/docs)
-- [Vercel Documentation](https://vercel.com/docs) 
+- [React Documentation](https://react.dev/)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Clerk Documentation](https://clerk.com/docs)
+- [Vercel Documentation](https://vercel.com/docs)
+
+### Documentation interne
+
+- **Architecture** : Voir section [Architecture](#-architecture)
+- **Internationalisation** : Voir section [Internationalisation](#-internationalisation)
+- **Authentification** : Voir section [Authentification](#-authentification)
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! Pour contribuer :
+
+1. Fork le projet
+2. Créez une branche pour votre feature (`git checkout -b feature/AmazingFeature`)
+3. Committez vos changements (`git commit -m 'Add some AmazingFeature'`)
+4. Push vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrez une Pull Request
+
+## 📄 Licence
+
+Ce projet est propriétaire et confidentiel. Tous droits réservés.
+
+---
+
+<div align="center">
+
+**GearConnect** - Connect Passion with Ambition
+
+Développé avec ❤️ par l'équipe GearConnect
+
+</div>

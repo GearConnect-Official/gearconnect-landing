@@ -23,16 +23,19 @@ export default async function Privacy() {
       <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-8 sm:space-y-10">
-            {content.sections.map((section, index) => (
-              <div key={index} className="animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 md:mb-6 break-words" style={{ color: '#1E232C' }}>
-                  {section.title}
-                </h2>
-                <p className="text-sm sm:text-base md:text-lg font-medium leading-relaxed break-words" style={{ color: '#474C54' }}>
-                  {section.content}
-                </p>
-              </div>
-            ))}
+            {content.sections.map((section, index) => {
+              const delayClass = index < 6 ? `terms-section-delay-${index}` : '';
+              return (
+                <div key={index} className={`animate-fade-in-up terms-section ${delayClass}`}>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 md:mb-6 break-words text-primary">
+                    {section.title}
+                  </h2>
+                  <p className="text-sm sm:text-base md:text-lg font-medium leading-relaxed break-words text-secondary">
+                    {section.content}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

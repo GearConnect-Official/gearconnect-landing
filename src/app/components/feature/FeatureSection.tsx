@@ -54,7 +54,7 @@ export default function FeatureSection({
             src={imageSrc}
             alt={imageAlt}
             fill
-            style={{ objectFit: "cover" }}
+            className="feature-image"
           />
         </div>
       </div>

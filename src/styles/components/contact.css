@@ -1,0 +1,10 @@
+/* Contact Form Styles */
+.contact-input {
+  border-color: var(--grey-200);
+  color: var(--text-primary);
+}
+
+.contact-checkbox {
+  border-color: var(--grey-200);
+  accent-color: var(--primary-red);
+}

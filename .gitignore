@@ -45,3 +45,6 @@ prisma/dev.db-journal
 
 # Bun
 bun.lockb
+
+# clerk configuration (can include secrets)
+/.clerk/

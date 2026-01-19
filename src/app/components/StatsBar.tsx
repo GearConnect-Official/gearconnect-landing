@@ -52,11 +52,11 @@ export default function StatsBar({ stats }: StatsBarProps) {
                 transitionDelay: mounted ? `${index * 100}ms` : "0ms",
               }}
             >
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2" style={{ color: "#E53935" }}>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-brand">
                 {stat.value}
                 {stat.suffix && <span className="text-2xl sm:text-3xl">{stat.suffix}</span>}
               </div>
-              <div className="text-xs sm:text-sm md:text-base font-medium break-words px-1" style={{ color: "#474C54" }}>
+              <div className="text-xs sm:text-sm md:text-base font-medium break-words px-1 text-secondary">
                 {stat.label}
               </div>
             </div>

@@ -3,6 +3,7 @@ import { getHomeContent } from "@/lib/content";
 import { getLanguage } from "@/lib/get-language";
 import ScreenshotCarousel from "./components/ScreenshotCarousel";
 import AppScreenshot from "./components/AppScreenshot";
+import PlayStoreStats from "./components/PlayStoreStats";
 import AnimatedBanner from "./components/AnimatedBanner";
 import StatsBar from "./components/StatsBar";
 
@@ -27,7 +28,7 @@ export default async function Home() {
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-72 h-72 bg-[#E53935] opacity-5 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#C62828] opacity-5 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#C62828] opacity-5 rounded-full blur-3xl animate-float animation-delay-1s"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
@@ -36,10 +37,10 @@ export default async function Home() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 sm:mb-6 bg-gradient-to-r from-[#1E232C] via-[#E53935] to-[#1E232C] bg-clip-text text-transparent animate-gradient break-words">
                 {content.hero.title}
           </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-2 font-bold break-words" style={{ color: '#E53935' }}>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-2 font-bold break-words page-hero-subtitle">
                 {content.hero.subtitle}
               </p>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 font-medium break-words" style={{ color: '#474C54' }}>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 font-medium break-words page-hero-description">
                 {content.hero.description}
               </p>
               
@@ -66,7 +67,7 @@ export default async function Home() {
             </div>
             
             {/* Right: App Screenshot Carousel */}
-            <div className="hidden lg:block order-1 lg:order-2 animate-fade-in-up relative z-10" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
+            <div className="hidden lg:block order-1 lg:order-2 animate-fade-in-up relative z-10 animation-delay-0-2s animation-fill-both">
               <div className="transform hover:scale-105 transition-transform duration-500 ease-out animate-float">
                 <ScreenshotCarousel screenshots={heroScreenshots} />
               </div>
@@ -90,14 +91,14 @@ export default async function Home() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-12 md:mb-16">
             <div className="inline-block mb-4">
-              <span className="text-sm sm:text-base font-bold uppercase tracking-wider px-4 py-2 rounded-full" style={{ backgroundColor: '#FFF5F5', color: '#E53935' }}>
+              <span className="text-sm sm:text-base font-bold uppercase tracking-wider px-4 py-2 rounded-full bg-light-red text-brand">
                 {content.features.title}
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 break-words" style={{ color: '#1E232C' }}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 break-words text-primary">
               {content.features.subtitle}
             </h2>
-            <p className="text-base sm:text-lg md:text-xl font-medium max-w-2xl mx-auto break-words" style={{ color: '#474C54' }}>
+            <p className="text-base sm:text-lg md:text-xl font-medium max-w-2xl mx-auto break-words text-secondary">
               {content.features.description}
             </p>
           </div>
@@ -115,11 +116,11 @@ export default async function Home() {
               </div>
             </div>
             <div className="order-1 lg:order-2 text-center lg:text-left lg:pl-0 min-w-0">
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 break-words" style={{ color: '#1E232C' }}>{content.features.feed.title}</h3>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-6 font-medium break-words" style={{ color: '#474C54' }}>
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 break-words text-primary">{content.features.feed.title}</h3>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-6 font-medium break-words text-secondary">
                 {content.features.feed.description}
               </p>
-              <ul className="space-y-2 sm:space-y-3 text-left max-w-md mx-auto lg:mx-0" style={{ color: '#474C54' }}>
+              <ul className="space-y-2 sm:space-y-3 text-left max-w-md mx-auto lg:mx-0 text-secondary">
                 {content.features.feed.items.map((item, index) => (
                   <li key={index} className="flex items-start text-xs sm:text-sm md:text-base hover:text-[#1E232C] transition-colors duration-200 break-words">
                     <span className="text-[#E53935] mr-2 flex-shrink-0 font-bold">•</span>
@@ -133,11 +134,11 @@ export default async function Home() {
           {/* Feature 2: Events */}
           <div className="mb-12 sm:mb-16 md:mb-20 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center">
             <div className="text-center lg:text-left order-2 lg:order-1 lg:pr-0 min-w-0">
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 break-words" style={{ color: '#1E232C' }}>{content.features.events.title}</h3>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-6 font-medium break-words" style={{ color: '#474C54' }}>
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 break-words text-primary">{content.features.events.title}</h3>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-6 font-medium break-words text-secondary">
                 {content.features.events.description}
               </p>
-              <ul className="space-y-2 sm:space-y-3 text-left max-w-md mx-auto lg:mx-0" style={{ color: '#474C54' }}>
+              <ul className="space-y-2 sm:space-y-3 text-left max-w-md mx-auto lg:mx-0 text-secondary">
                 {content.features.events.items.map((item, index) => (
                   <li key={index} className="flex items-start text-xs sm:text-sm md:text-base hover:text-[#1E232C] transition-colors duration-200 break-words">
                     <span className="text-[#E53935] mr-2 flex-shrink-0 font-bold">•</span>
@@ -171,11 +172,11 @@ export default async function Home() {
               </div>
             </div>
             <div className="order-1 lg:order-2 text-center lg:text-left lg:pl-0 min-w-0">
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 break-words" style={{ color: '#1E232C' }}>{content.features.performances.title}</h3>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-6 font-medium break-words" style={{ color: '#474C54' }}>
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 break-words text-primary">{content.features.performances.title}</h3>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-6 font-medium break-words text-secondary">
                 {content.features.performances.description}
               </p>
-              <ul className="space-y-2 sm:space-y-3 text-left max-w-md mx-auto lg:mx-0" style={{ color: '#474C54' }}>
+              <ul className="space-y-2 sm:space-y-3 text-left max-w-md mx-auto lg:mx-0 text-secondary">
                 {content.features.performances.items.map((item, index) => (
                   <li key={index} className="flex items-start text-xs sm:text-sm md:text-base hover:text-[#1E232C] transition-colors duration-200 break-words">
                     <span className="text-[#E53935] mr-2 flex-shrink-0 font-bold">•</span>
@@ -193,7 +194,7 @@ export default async function Home() {
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }}></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-float animation-delay-1-5s"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl"></div>
         </div>
         
@@ -212,15 +213,15 @@ export default async function Home() {
           </h2>
           
           {/* Subtitle */}
-          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-4 sm:mb-6 text-white/90 font-semibold animate-fade-in-up break-words" style={{ animationDelay: '0.1s' }}>
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-4 sm:mb-6 text-white/90 font-semibold animate-fade-in-up break-words animation-delay-0-1s">
             {content.download.subtitle}
           </p>
-          <p className="text-base sm:text-lg md:text-xl mb-12 sm:mb-16 text-white/80 font-medium animate-fade-in-up break-words" style={{ animationDelay: '0.2s' }}>
+          <p className="text-base sm:text-lg md:text-xl mb-12 sm:mb-16 text-white/80 font-medium animate-fade-in-up break-words animation-delay-0-2s">
             {content.download.description}
           </p>
           
           {/* Download Button */}
-          <div className="flex justify-center items-center animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+          <div className="flex justify-center items-center animate-fade-in-up animation-delay-0-3s">
             <a 
               href="https://play.google.com/store/apps/details?id=com.gearconnect.app" 
               target="_blank"
@@ -229,14 +230,17 @@ export default async function Home() {
             >
               <img 
                 src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
-                alt="Get it on Google Play"
+                alt={content.download.androidButton}
                 className="h-16 sm:h-20 md:h-24 w-auto drop-shadow-2xl"
               />
             </a>
             </div>
             
+          {/* Play Store Stats */}
+          <PlayStoreStats />
+            
           {/* Trust indicators */}
-          <div className="mt-12 sm:mt-16 flex flex-wrap justify-center items-center gap-6 sm:gap-8 text-white/70 text-sm sm:text-base animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+          <div className="mt-12 sm:mt-16 flex flex-wrap justify-center items-center gap-6 sm:gap-8 text-white/70 text-sm sm:text-base animate-fade-in-up animation-delay-0-4s">
             {content.download.trustIndicators.map((indicator, index) => (
               <div key={index} className="flex items-center gap-2">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -250,26 +254,25 @@ export default async function Home() {
       </section>
       
       {/* Usage Section */}
-      <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden" style={{ backgroundColor: '#F7F8F9' }}>
+      <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden bg-grey-50">
         {/* Decorative gradient */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#E53935] to-transparent"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-12 md:mb-16">
             <div className="inline-block mb-4">
-              <span className="text-sm sm:text-base font-bold uppercase tracking-wider px-4 py-2 rounded-full" style={{ backgroundColor: '#FFF5F5', color: '#E53935' }}>
+              <span className="text-sm sm:text-base font-bold uppercase tracking-wider px-4 py-2 rounded-full bg-light-red text-brand">
                 {content.usage.badge}
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 break-words" style={{ color: '#1E232C' }}>{content.usage.title}</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 break-words text-primary">{content.usage.title}</h2>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
             {content.usage.items.map((feature, index) => (
               <div 
                 key={index} 
-                className="group bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 ease-out border-l-4 min-w-0"
-                style={{ borderColor: '#E53935' }}
+                className="group bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 ease-out border-l-4 min-w-0 border-brand"
               >
                 <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#E53935] to-[#C62828] rounded-xl flex items-center justify-center mb-3 sm:mb-4 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg flex-shrink-0">
                   {feature.icon === 'user' && (
@@ -288,8 +291,8 @@ export default async function Home() {
                     </svg>
                   )}
                 </div>
-                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 md:mb-4 group-hover:text-[#E53935] transition-colors duration-300 break-words" style={{ color: '#1E232C' }}>{feature.title}</h3>
-                <p className="text-xs sm:text-sm md:text-base font-medium leading-relaxed break-words" style={{ color: '#474C54' }}>
+                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 md:mb-4 group-hover:text-[#E53935] transition-colors duration-300 break-words text-primary">{feature.title}</h3>
+                <p className="text-xs sm:text-sm md:text-base font-medium leading-relaxed break-words text-secondary">
                   {feature.description}
                 </p>
             </div>

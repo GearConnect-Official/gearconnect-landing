@@ -1,0 +1,46 @@
+/* Home Page Styles */
+.home-hero-subtitle {
+  color: var(--primary-red);
+}
+
+.home-hero-description {
+  color: var(--text-secondary);
+}
+
+.home-feature-badge {
+  background-color: var(--bg-light-red);
+  color: var(--primary-red);
+}
+
+.home-feature-title {
+  color: var(--text-primary);
+}
+
+.home-feature-description {
+  color: var(--text-secondary);
+}
+
+.home-feature-list {
+  color: var(--text-secondary);
+}
+
+.home-usage-card {
+  background-color: white;
+  border-left: 4px solid var(--primary-red);
+}
+
+.home-usage-icon {
+  background: linear-gradient(to bottom right, var(--primary-red), var(--primary-red-dark));
+}
+
+.home-usage-title {
+  color: var(--text-primary);
+}
+
+.home-usage-title:hover {
+  color: var(--primary-red);
+}
+
+.home-usage-description {
+  color: var(--text-secondary);
+}

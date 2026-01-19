@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { ClerkProvider } from '@clerk/nextjs';
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -75,18 +76,20 @@ export default async function RootLayout({
   const footerContent = getFooterContent(lang);
   
   return (
-    <html lang={lang}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar content={navbarContent} currentLang={lang} />
-        <div className="pt-14 sm:pt-16">
-          {children}
-        </div>
-        <SpeedInsights />
-        <Analytics />
-        <Footer content={footerContent} />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang={lang}>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <Navbar content={navbarContent} currentLang={lang} />
+          <div className="pt-14 sm:pt-16">
+            {children}
+          </div>
+          <SpeedInsights />
+          <Analytics />
+          <Footer content={footerContent} />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

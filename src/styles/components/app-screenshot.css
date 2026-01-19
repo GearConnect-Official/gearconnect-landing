@@ -1,0 +1,8 @@
+/* App Screenshot Styles */
+.app-screenshot-error-label {
+  color: var(--text-secondary);
+}
+
+.app-screenshot-error-path {
+  color: var(--text-tertiary);
+}

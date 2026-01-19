@@ -1,0 +1,121 @@
+/* Auth Pages Styles */
+.auth-container {
+  min-height: calc(100vh - 14rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .auth-container {
+    padding: 4rem 1rem;
+  }
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 28rem;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  padding: 2rem;
+}
+
+@media (min-width: 640px) {
+  .auth-card {
+    padding: 2.5rem;
+  }
+}
+
+.auth-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.auth-subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
+}
+
+.auth-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.auth-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--grey-200);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+}
+
+.auth-input:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: var(--primary-red);
+  border-color: var(--primary-red);
+}
+
+.auth-hint {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+.auth-button {
+  width: 100%;
+  background-color: var(--primary-red);
+  color: white;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+  transform: scale(1);
+}
+
+.auth-button:hover {
+  background-color: var(--primary-red-dark);
+  transform: scale(1.05);
+}
+
+.auth-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.auth-link-text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.auth-link {
+  color: var(--primary-red);
+  font-weight: 600;
+}
+
+.auth-link:hover {
+  color: var(--primary-red-dark);
+}
+
+.auth-error {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: 0.5rem;
+}
+
+.auth-error-text {
+  font-size: 0.875rem;
+  color: #DC2626;
+}

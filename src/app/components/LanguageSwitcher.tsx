@@ -36,8 +36,7 @@ export default function LanguageSwitcher({ currentLang }: { currentLang: Languag
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ease-out hover:bg-[#FFF5F5]"
-        style={{ color: '#1E232C' }}
+        className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ease-out hover:bg-[#FFF5F5] text-primary"
         aria-label="Switch language"
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,7 +54,7 @@ export default function LanguageSwitcher({ currentLang }: { currentLang: Languag
             className="fixed inset-0 z-40" 
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border z-50 max-h-96 overflow-y-auto" style={{ borderColor: '#DAE0E6' }}>
+          <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border z-50 max-h-96 overflow-y-auto border-grey">
             {supportedLanguages.map((langOption) => (
               <button
                 key={langOption}
@@ -65,7 +64,7 @@ export default function LanguageSwitcher({ currentLang }: { currentLang: Languag
                     ? 'bg-[#FFF5F5] text-[#E53935]' 
                     : 'hover:bg-[#FFF5F5]'
                 }`}
-                style={{ color: lang === langOption ? '#E53935' : '#1E232C' }}
+                className={lang === langOption ? 'language-option-active' : 'language-option'}
               >
                 {languageNames[langOption]}
               </button>
