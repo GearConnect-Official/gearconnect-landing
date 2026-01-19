@@ -55,7 +55,57 @@
   padding: 0.75rem 1rem;
   border: 1px solid var(--grey-200);
   border-radius: 0.5rem;
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
+}
+
+/* Force text color on all input types with maximum specificity */
+input.auth-input,
+textarea.auth-input,
+select.auth-input,
+input[type="text"].auth-input,
+input[type="email"].auth-input,
+input[type="password"].auth-input {
+  color: var(--text-primary) !important;
+}
+
+/* Force color even when focused or disabled */
+input.auth-input:focus,
+textarea.auth-input:focus,
+select.auth-input:focus,
+input.auth-input:disabled,
+textarea.auth-input:disabled,
+select.auth-input:disabled {
+  color: var(--text-primary) !important;
+}
+
+.auth-input::placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.7;
+}
+
+.auth-input::-webkit-input-placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.7;
+}
+
+.auth-input::-moz-placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.7;
+}
+
+.auth-input:-ms-input-placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.7;
+}
+
+.auth-input:-webkit-autofill,
+.auth-input:-webkit-autofill:hover,
+.auth-input:-webkit-autofill:focus,
+.auth-input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--text-primary) !important;
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  box-shadow: 0 0 0px 1000px white inset !important;
+  color: var(--text-primary) !important;
 }
 
 .auth-input:focus {
@@ -63,6 +113,7 @@
   ring: 2px;
   ring-color: var(--primary-red);
   border-color: var(--primary-red);
+  color: var(--text-primary) !important;
 }
 
 .auth-hint {

@@ -156,7 +156,7 @@ export default function ForgotPasswordPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E53935] transition-colors border-grey"
+                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E53935] transition-colors border-grey auth-input"
                   placeholder="votre@email.com"
                   disabled={loading || !isLoaded}
                 />
@@ -184,7 +184,7 @@ export default function ForgotPasswordPage() {
                   value={code}
                   onChange={(e) => setCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
                   required
-                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E53935] transition-colors text-center text-2xl tracking-widest border-grey"
+                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E53935] transition-colors text-center text-2xl tracking-widest border-grey auth-input"
                   placeholder="000000"
                   maxLength={6}
                   disabled={loading || !isLoaded}
@@ -224,7 +224,7 @@ export default function ForgotPasswordPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   minLength={8}
-                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E53935] transition-colors border-grey"
+                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E53935] transition-colors border-grey auth-input"
                   placeholder="••••••••"
                   disabled={loading || !isLoaded}
                 />
@@ -242,7 +242,7 @@ export default function ForgotPasswordPage() {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                   minLength={8}
-                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E53935] transition-colors border-grey"
+                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E53935] transition-colors border-grey auth-input"
                   placeholder="••••••••"
                   disabled={loading || !isLoaded}
                 />

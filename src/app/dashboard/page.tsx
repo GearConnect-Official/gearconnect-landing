@@ -77,10 +77,10 @@ export default function DashboardPage() {
 
   if (!isLoaded) {
     return (
-      <div className="flex items-center justify-center min-h-[calc(100vh-14rem)]">
+      <div className="dashboard-container flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#E53935] mx-auto"></div>
-          <p className="mt-4 text-secondary">Chargement...</p>
+          <p className="mt-4 dashboard-subtitle">Chargement...</p>
         </div>
       </div>
     );
@@ -88,10 +88,10 @@ export default function DashboardPage() {
 
   if (!user) {
     return (
-      <div className="flex items-center justify-center min-h-[calc(100vh-14rem)]">
+      <div className="dashboard-container flex items-center justify-center">
         <div className="text-center">
-          <p className="text-lg mb-4">Vous devez être connecté pour accéder à cette page.</p>
-          <Link href="/sign-in" className="text-[#E53935] hover:text-[#C62828] font-semibold">
+          <p className="text-lg mb-4 dashboard-info-label">Vous devez être connecté pour accéder à cette page.</p>
+          <Link href="/auth/login" className="text-[#E53935] hover:text-[#C62828] font-semibold">
             Se connecter
           </Link>
         </div>
@@ -100,21 +100,21 @@ export default function DashboardPage() {
   }
 
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <main className="dashboard-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       <div className="mb-8">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-2 text-primary">
+        <h1 className="dashboard-title text-3xl sm:text-4xl font-bold mb-2">
           Mon Compte
         </h1>
-        <p className="text-secondary">
+        <p className="dashboard-subtitle">
           Bienvenue, {user.firstName || user.emailAddresses[0]?.emailAddress}
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="dashboard-grid">
         {/* Conversations */}
-        <div className="lg:col-span-2">
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <h2 className="text-xl font-bold mb-4 text-primary">
+        <div>
+          <div className="dashboard-card">
+            <h2 className="dashboard-card-title">
               Mes Conversations
             </h2>
             {loading ? (
@@ -122,8 +122,8 @@ export default function DashboardPage() {
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#E53935] mx-auto"></div>
               </div>
             ) : conversations.length === 0 ? (
-              <div className="text-center py-8 text-secondary">
-                <p>Aucune conversation pour le moment.</p>
+              <div className="text-center py-8">
+                <p className="dashboard-info-label">Aucune conversation pour le moment.</p>
                 <Link 
                   href="/contact" 
                   className="mt-4 inline-block text-[#E53935] hover:text-[#C62828] font-semibold"
@@ -145,12 +145,12 @@ export default function DashboardPage() {
                   return (
                     <div
                       key={conv.id}
-                      className="p-4 border rounded-lg hover:bg-[#FFF5F5] transition-colors cursor-pointer border-grey"
+                      className="dashboard-conversation-item"
                     >
                       <div className="flex justify-between items-start">
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <h3 className="font-semibold truncate text-primary">
+                            <h3 className="dashboard-conversation-name font-semibold truncate">
                               {conversationName}
                             </h3>
                             {conv.isCommercial && (
@@ -165,12 +165,12 @@ export default function DashboardPage() {
                             )}
                           </div>
                           {conv.lastMessage && (
-                            <p className="text-sm mt-1 truncate text-secondary">
+                            <p className="dashboard-conversation-message truncate">
                               {conv.lastMessage.content}
                             </p>
                           )}
                           {conv.lastMessage && (
-                            <p className="text-xs mt-1 text-tertiary">
+                            <p className="dashboard-conversation-date">
                               {new Date(conv.lastMessage.createdAt).toLocaleDateString()}
                             </p>
                           )}
@@ -189,43 +189,43 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Actions rapides */}
-        <div className="space-y-6">
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <h2 className="text-xl font-bold mb-4 text-primary">
+        {/* Sidebar */}
+        <div className="dashboard-sidebar">
+          <div className="dashboard-card">
+            <h2 className="dashboard-card-title">
               Actions Rapides
             </h2>
             <div className="space-y-3">
               <Link
                 href="/contact"
-                className="block w-full bg-[#E53935] hover:bg-[#C62828] text-white text-center py-3 px-4 rounded-lg font-semibold transition-colors"
+                className="dashboard-action-button"
               >
                 Contacter le Support
               </Link>
               <Link
                 href="/#download"
-                className="block w-full border-2 border-[#E53935] text-[#E53935] hover:bg-[#FFF5F5] text-center py-3 px-4 rounded-lg font-semibold transition-colors"
+                className="dashboard-action-button-outline"
               >
                 Télécharger l'App
               </Link>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <h2 className="text-xl font-bold mb-4 text-primary">
+          <div className="dashboard-card">
+            <h2 className="dashboard-card-title">
               Informations du Compte
             </h2>
-            <div className="space-y-2 text-sm">
+            <div className="space-y-3">
               <div>
-                <span className="text-secondary">Email:</span>
-                <p className="font-medium text-primary">
+                <span className="dashboard-info-label">Email:</span>
+                <p className="dashboard-info-value">
                   {user.emailAddresses[0]?.emailAddress}
                 </p>
               </div>
               {user.firstName && (
                 <div>
-                  <span className="text-secondary">Nom:</span>
-                  <p className="font-medium text-primary">
+                  <span className="dashboard-info-label">Nom:</span>
+                  <p className="dashboard-info-value">
                     {user.firstName} {user.lastName}
                   </p>
                 </div>

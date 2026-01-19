@@ -1,10 +1,93 @@
+/* Contact Page Layout */
+.contact-section {
+  max-width: 1152px; /* max-w-6xl */
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.contact-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 /* Contact Form Styles */
 .contact-input {
-  border-color: var(--grey-200);
-  color: var(--text-primary);
+  border-color: var(--grey-200) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Force text color on all input types */
+input.contact-input,
+textarea.contact-input,
+select.contact-input {
+  color: var(--text-primary) !important;
+}
+
+/* Override any Tailwind text color classes */
+input.contact-input.text-primary,
+textarea.contact-input.text-primary,
+select.contact-input.text-primary {
+  color: var(--text-primary) !important;
+}
+
+/* Placeholder styles */
+.contact-input::placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.7;
+}
+
+.contact-input::-webkit-input-placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.7;
+}
+
+.contact-input::-moz-placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.7;
+}
+
+.contact-input:-ms-input-placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 0.7;
+}
+
+/* Autofill styles */
+.contact-input:-webkit-autofill,
+.contact-input:-webkit-autofill:hover,
+.contact-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text-primary) !important;
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  box-shadow: 0 0 0px 1000px white inset !important;
+  color: var(--text-primary) !important;
 }
 
 .contact-checkbox {
-  border-color: var(--grey-200);
-  accent-color: var(--primary-red);
+  border-color: var(--grey-200) !important;
+  accent-color: var(--primary-red) !important;
+}
+
+/* Select dropdown text color */
+.contact-input option,
+select.contact-input option {
+  color: var(--text-primary) !important;
+  background-color: white !important;
+}
+
+/* Ensure text is visible when typing */
+input.contact-input,
+textarea.contact-input,
+select.contact-input {
+  color: var(--text-primary) !important;
 }

@@ -88,20 +88,12 @@ export default function Navbar({ content, currentLang = 'en' }: NavbarProps) {
                 />
               </>
             ) : (
-              <>
-                <Link 
-                  href="/auth/login" 
-                  className="px-3 lg:px-4 py-2 rounded-lg text-xs lg:text-sm font-semibold transition-all duration-300 ease-out whitespace-nowrap navbar-link"
-                >
-                  Connexion
-                </Link>
-                <Link 
-                  href="/auth/register" 
-                  className="text-white px-3 lg:px-6 py-2 rounded-lg text-xs lg:text-sm font-semibold shadow-md transition-all duration-300 ease-out transform hover:scale-105 hover:shadow-lg whitespace-nowrap navbar-cta"
-                >
-                  S'inscrire
-                </Link>
-              </>
+              <Link 
+                href={content.cta.link} 
+                className="text-white px-3 lg:px-6 py-2 rounded-lg text-xs lg:text-sm font-semibold shadow-md transition-all duration-300 ease-out transform hover:scale-105 hover:shadow-lg whitespace-nowrap navbar-cta"
+              >
+                {content.cta.text}
+              </Link>
             )}
           </div>
           
@@ -160,20 +152,12 @@ export default function Navbar({ content, currentLang = 'en' }: NavbarProps) {
                 </div>
               </>
             ) : (
-              <>
-                <Link 
-                  href="/auth/login" 
-                  className="block px-4 py-3 rounded-lg text-base font-semibold transition-all duration-200 navbar-link"
-                >
-                  Connexion
-                </Link>
-                <Link 
-                  href="/auth/register" 
-                  className="block mx-4 mt-4 text-white px-4 py-3 rounded-lg text-base font-semibold text-center transition-all duration-200 navbar-cta"
-                >
-                  S'inscrire
-                </Link>
-              </>
+              <Link 
+                href={content.cta.link} 
+                className="block mx-4 mt-4 text-white px-4 py-3 rounded-lg text-base font-semibold text-center transition-all duration-200 navbar-cta"
+              >
+                {content.cta.text}
+              </Link>
             )}
           </div>
         </div>

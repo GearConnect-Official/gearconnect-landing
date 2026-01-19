@@ -196,23 +196,12 @@ export interface ContactContent {
     title: string;
     description: string;
     submitButton: string;
+    loginRequired: string;
+    loginLink: string;
+    loginButton: string;
+    successMessage: string;
+    errorMessage: string;
     fields: {
-      firstName: {
-        label: string;
-        placeholder: string;
-      };
-      lastName: {
-        label: string;
-        placeholder: string;
-      };
-      email: {
-        label: string;
-        placeholder: string;
-      };
-      vehicle: {
-        label: string;
-        placeholder: string;
-      };
       subject: {
         label: string;
         placeholder: string;
