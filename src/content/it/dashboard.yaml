@@ -1,0 +1,18 @@
+title: "Il Mio Account"
+welcome: "Benvenuto"
+loading: "Caricamento..."
+mustBeLoggedIn: "Devi essere connesso per accedere a questa pagina."
+login: "Accedi"
+conversations:
+  title: "Le Mie Conversazioni"
+  empty: "Nessuna conversazione al momento."
+  contactSupport: "Contatta il supporto"
+  commercial: "Commerciale"
+actions:
+  title: "Azioni Rapide"
+  contactSupport: "Contatta il Supporto"
+  downloadApp: "Scarica l'App"
+accountInfo:
+  title: "Informazioni Account"
+  email: "Email:"
+  name: "Nome:"

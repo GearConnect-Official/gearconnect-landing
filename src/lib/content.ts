@@ -75,6 +75,7 @@ export interface NavbarContent {
     features: string;
     faq: string;
     contact: string;
+    myAccount: string;
   };
   cta: {
     text: string;
@@ -305,4 +306,32 @@ export function getPrivacyContent(lang: string = 'en'): PrivacyContent {
 
 export function getTermsContent(lang: string = 'en'): TermsContent {
   return loadYAML<TermsContent>('terms.yaml', lang);
+}
+
+export interface DashboardContent {
+  title: string;
+  welcome: string;
+  loading: string;
+  mustBeLoggedIn: string;
+  login: string;
+  conversations: {
+    title: string;
+    empty: string;
+    contactSupport: string;
+    commercial: string;
+  };
+  actions: {
+    title: string;
+    contactSupport: string;
+    downloadApp: string;
+  };
+  accountInfo: {
+    title: string;
+    email: string;
+    name: string;
+  };
+}
+
+export function getDashboardContent(lang: string = 'en'): DashboardContent {
+  return loadYAML<DashboardContent>('dashboard.yaml', lang);
 }

@@ -18,6 +18,7 @@ interface NavbarProps {
       features: string;
       faq: string;
       contact: string;
+      myAccount: string;
     };
     cta: {
       text: string;
@@ -77,7 +78,7 @@ export default function Navbar({ content, currentLang = 'en' }: NavbarProps) {
                   href="/dashboard" 
                   className="px-3 lg:px-4 py-2 rounded-lg text-xs lg:text-sm font-semibold transition-all duration-300 ease-out whitespace-nowrap navbar-link"
                 >
-                  Mon Compte
+                  {content.menu.myAccount}
                 </Link>
                 <UserButton 
                   appearance={{
@@ -145,7 +146,7 @@ export default function Navbar({ content, currentLang = 'en' }: NavbarProps) {
                   href="/dashboard" 
                   className="block px-4 py-3 rounded-lg text-base font-semibold transition-all duration-200 navbar-link"
                 >
-                  Mon Compte
+                  {content.menu.myAccount}
                 </Link>
                 <div className="px-4 mt-4">
                   <UserButton />

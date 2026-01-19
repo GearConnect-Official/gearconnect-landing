@@ -1,0 +1,18 @@
+title: "Mein Konto"
+welcome: "Willkommen"
+loading: "Laden..."
+mustBeLoggedIn: "Sie müssen angemeldet sein, um auf diese Seite zuzugreifen."
+login: "Anmelden"
+conversations:
+  title: "Meine Unterhaltungen"
+  empty: "Keine Unterhaltungen im Moment."
+  contactSupport: "Support kontaktieren"
+  commercial: "Kommerziell"
+actions:
+  title: "Schnellaktionen"
+  contactSupport: "Support kontaktieren"
+  downloadApp: "App herunterladen"
+accountInfo:
+  title: "Kontoinformationen"
+  email: "E-Mail:"
+  name: "Name:"

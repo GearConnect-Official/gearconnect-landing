@@ -1,0 +1,18 @@
+title: "Mi Cuenta"
+welcome: "Bienvenido"
+loading: "Cargando..."
+mustBeLoggedIn: "Debes iniciar sesión para acceder a esta página."
+login: "Iniciar sesión"
+conversations:
+  title: "Mis Conversaciones"
+  empty: "No hay conversaciones por el momento."
+  contactSupport: "Contactar soporte"
+  commercial: "Comercial"
+actions:
+  title: "Acciones Rápidas"
+  contactSupport: "Contactar Soporte"
+  downloadApp: "Descargar la App"
+accountInfo:
+  title: "Información de la Cuenta"
+  email: "Correo:"
+  name: "Nombre:"

@@ -61,10 +61,9 @@ export default function LanguageSwitcher({ currentLang }: { currentLang: Languag
                 onClick={() => switchLanguage(langOption)}
                 className={`w-full text-left px-4 py-2.5 text-sm font-medium transition-colors duration-200 first:rounded-t-lg last:rounded-b-lg ${
                   lang === langOption 
-                    ? 'bg-[#FFF5F5] text-[#E53935]' 
-                    : 'hover:bg-[#FFF5F5]'
+                    ? 'bg-[#FFF5F5] text-[#E53935] language-option-active' 
+                    : 'hover:bg-[#FFF5F5] language-option'
                 }`}
-                className={lang === langOption ? 'language-option-active' : 'language-option'}
               >
                 {languageNames[langOption]}
               </button>

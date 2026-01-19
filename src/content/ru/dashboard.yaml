@@ -1,0 +1,18 @@
+title: "My Account"
+welcome: "Welcome"
+loading: "Loading..."
+mustBeLoggedIn: "You must be logged in to access this page."
+login: "Log in"
+conversations:
+  title: "My Conversations"
+  empty: "No conversations at the moment."
+  contactSupport: "Contact support"
+  commercial: "Commercial"
+actions:
+  title: "Quick Actions"
+  contactSupport: "Contact Support"
+  downloadApp: "Download App"
+accountInfo:
+  title: "Account Information"
+  email: "Email:"
+  name: "Name:"
