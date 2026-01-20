@@ -8,6 +8,7 @@ menu:
   faq: "FAQ"
   contact: "Contact"
   myAccount: "Ο Λογαριασμός Μου"
+  login: "Σύνδεση"
 
 cta:
   text: "Download"

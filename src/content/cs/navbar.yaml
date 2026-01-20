@@ -8,6 +8,7 @@ menu:
   faq: "FAQ"
   contact: "Contact"
   myAccount: "Můj Účet"
+  login: "Přihlásit se"
 
 cta:
   text: "Download"

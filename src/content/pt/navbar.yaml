@@ -8,6 +8,7 @@ menu:
   faq: "FAQ"
   contact: "Contato"
   myAccount: "Minha Conta"
+  login: "Entrar"
 
 cta:
   text: "Baixar"
