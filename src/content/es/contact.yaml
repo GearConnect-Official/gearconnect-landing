@@ -19,6 +19,9 @@ form:
     vehicle:
       label: "Your vehicle (optional)"
       placeholder: "Make, model and year"
+    title:
+      label: "Título"
+      placeholder: "Ingrese un título breve para su solicitud (ej: 'Problema de inicio de sesión', 'Pregunta sobre seguimiento de rendimiento')"
     subject:
       label: "Subject"
       placeholder: "Select a subject"

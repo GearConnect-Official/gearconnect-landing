@@ -1,0 +1,135 @@
+/* Dashboard Styles */
+.dashboard-container {
+  min-height: calc(100vh - 14rem);
+  padding: 2rem 1rem;
+}
+
+.dashboard-title {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.dashboard-card {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--grey-200);
+}
+
+.dashboard-card-title {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.dashboard-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dashboard-conversation-item {
+  padding: 1rem;
+  border: 1px solid var(--grey-200);
+  border-radius: 0.5rem;
+  background: var(--grey-50);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.dashboard-conversation-item:hover {
+  background: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-red);
+}
+
+.dashboard-conversation-name {
+  color: var(--text-primary);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.dashboard-conversation-message {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.dashboard-conversation-date {
+  color: var(--text-tertiary);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.dashboard-action-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--primary-red);
+  color: white;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.dashboard-action-button:hover {
+  background: var(--primary-red-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-action-button-outline {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: white;
+  color: var(--primary-red);
+  text-align: center;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--primary-red);
+  transition: all 0.2s;
+}
+
+.dashboard-action-button-outline:hover {
+  background: var(--primary-red);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-info-label {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.dashboard-info-value {
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+}
