@@ -19,6 +19,9 @@ form:
     vehicle:
       label: "Your vehicle (optional)"
       placeholder: "Make, model and year"
+    title:
+      label: "Otsikko"
+      placeholder: "Anna lyhyt otsikko pyyntösi (esim. 'Kirjautumisongelma', 'Kysymys suorituskyvyn seurannasta')"
     subject:
       label: "Subject"
       placeholder: "Select a subject"

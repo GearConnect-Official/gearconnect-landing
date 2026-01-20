@@ -16,3 +16,26 @@ accountInfo:
   title: "Informations du Compte"
   email: "Email:"
   name: "Nom:"
+ticket:
+  back: "Retour au tableau de bord"
+  loading: "Chargement..."
+  mustBeLoggedIn: "Vous devez être connecté pour voir cette conversation"
+  login: "Se connecter"
+  title: "Ticket"
+  status:
+    open: "Ouvert"
+    resolved: "Résolu"
+    needsMaintenance: "Maintenance requise"
+    closed: "Fermé"
+  markAsResolved: "Marquer comme résolu"
+  confirmResolved: "Marquer ce ticket comme résolu ?"
+  noMessages: "Aucun message dans cette conversation"
+  sendMessage: "Envoyer un message"
+  sending: "Envoi en cours..."
+  errors:
+    sendMessage: "Échec de l'envoi du message"
+    updateStatus: "Échec de la mise à jour du statut"
+    loadMessages: "Échec du chargement des messages"
+support:
+  name: "GearConnect Support"
+  unknownUser: "Utilisateur inconnu"

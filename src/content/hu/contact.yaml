@@ -19,6 +19,9 @@ form:
     vehicle:
       label: "Your vehicle (optional)"
       placeholder: "Make, model and year"
+    title:
+      label: "Cím"
+      placeholder: "Adjon meg egy rövid címet a kéréséhez (pl. 'Bejelentkezési probléma', 'Kérdés a teljesítménykövetésről')"
     subject:
       label: "Subject"
       placeholder: "Select a subject"

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 
 const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3001';
-const SUPPORT_USER_ID = process.env.SUPPORT_USER_ID ? parseInt(process.env.SUPPORT_USER_ID) : null;
+const DASHBOARD_ADMIN_URL = process.env.DASHBOARD_ADMIN_URL || 'http://localhost:3002';
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,84 +26,107 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { subject, message } = body;
+    const { title, subject, message } = body;
 
-    if (!subject || !message || !message.trim()) {
+    if (!title || !title.trim() || !subject || !message || !message.trim()) {
       return NextResponse.json(
-        { error: 'Subject and message are required' },
+        { error: 'Title, subject and message are required' },
         { status: 400 }
       );
     }
 
-    // Récupérer l'ID interne de l'utilisateur depuis le backend
-    const userInfoResponse = await fetch(`${BACKEND_URL}/api/auth/me`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-      },
-    });
+    // Utiliser la nouvelle route landing/contact dédiée pour les questions depuis la landing
+    // Cette route est distincte des conversations de messagerie de l'app
+    console.log(`[Contact API] Attempting to contact backend at: ${BACKEND_URL}/api/landing/contact`);
+    
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 secondes timeout
 
-    if (!userInfoResponse.ok) {
-      return NextResponse.json(
-        { error: 'Failed to get user info' },
-        { status: userInfoResponse.status }
+    try {
+      const backendResponse = await fetch(
+        `${BACKEND_URL}/api/landing/contact`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            title: title.trim(),
+            subject,
+            message: message.trim(),
+          }),
+          signal: controller.signal,
+        }
       );
-    }
 
-    const userInfo = await userInfoResponse.json();
-    const internalUserId = userInfo.user?.id;
+      clearTimeout(timeoutId);
 
-    if (!internalUserId) {
-      return NextResponse.json(
-        { error: 'User not found in database' },
-        { status: 404 }
-      );
-    }
-
-    // Utiliser l'ID support depuis les variables d'environnement
-    if (!SUPPORT_USER_ID) {
-      return NextResponse.json(
-        { error: 'Support user not configured. Please contact us via email as a last resort.' },
-        { status: 500 }
-      );
-    }
-
-    // Construire le message avec le sujet et le contenu
-    const fullMessage = `Subject: ${subject}\n\n${message.trim()}`;
-
-    // Créer une conversation commerciale avec le support
-    const conversationResponse = await fetch(
-      `${BACKEND_URL}/api/messaging/requests`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          userId: internalUserId,
-          recipientId: SUPPORT_USER_ID,
-          message: fullMessage,
-        }),
+      if (!backendResponse.ok) {
+        const error = await backendResponse.json().catch(() => ({ error: 'Backend error' }));
+        console.error('[Contact API] Backend error:', backendResponse.status, error);
+        
+        // Messages d'erreur plus clairs selon le code de statut
+        let userMessage = 'Failed to send message. Please try again later.';
+        if (backendResponse.status === 400) {
+          userMessage = error.error || 'Invalid request. Please check that all fields are filled correctly.';
+        } else if (backendResponse.status === 401) {
+          userMessage = 'Authentication failed. Please log in again.';
+        } else if (backendResponse.status === 404) {
+          userMessage = 'User not found. Please contact support.';
+        } else if (backendResponse.status === 500) {
+          userMessage = 'Server error. Please try again later or contact support.';
+        }
+        
+        return NextResponse.json(
+          { error: userMessage },
+          { status: backendResponse.status }
+        );
       }
-    );
 
-    if (!conversationResponse.ok) {
-      const error = await conversationResponse.json().catch(() => ({ error: 'Backend error' }));
-      return NextResponse.json(error, { status: conversationResponse.status });
+      const result = await backendResponse.json();
+      console.log('[Contact API] Success:', result);
+      return NextResponse.json({
+        success: true,
+        message: 'Your message has been sent successfully to our support team. You will receive a response soon.',
+        ticketId: result.ticketId,
+      });
+    } catch (fetchError: any) {
+      clearTimeout(timeoutId);
+      
+      if (fetchError.name === 'AbortError') {
+        console.error('[Contact API] Request timeout after 15 seconds. Backend may be unreachable.');
+        console.error(`[Contact API] BACKEND_URL: ${BACKEND_URL}`);
+        return NextResponse.json(
+          { 
+            error: 'The server is taking too long to respond. Please check that the backend is running and accessible.',
+            details: `Backend URL: ${BACKEND_URL}`
+          },
+          { status: 504 }
+        );
+      }
+      
+      if (fetchError.code === 'ECONNREFUSED' || fetchError.message?.includes('ECONNREFUSED')) {
+        console.error('[Contact API] Connection refused. Backend is not running or not accessible.');
+        console.error(`[Contact API] BACKEND_URL: ${BACKEND_URL}`);
+        return NextResponse.json(
+          { 
+            error: 'Cannot connect to the backend server. Please ensure the backend is running.',
+            details: `Backend URL: ${BACKEND_URL}`
+          },
+          { status: 503 }
+        );
+      }
+      
+      throw fetchError; // Re-throw pour être capturé par le catch externe
     }
-
-    const conversation = await conversationResponse.json();
-    return NextResponse.json({
-      success: true,
-      message: 'Your message has been sent successfully. You can view the conversation in your dashboard.',
-      conversationId: conversation.id || conversation.conversationId,
-    });
-  } catch (error) {
-    console.error('Error creating contact conversation:', error);
+  } catch (error: any) {
+    console.error('[Contact API] Unexpected error:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { 
+        error: 'Internal server error',
+        details: error.message || 'Unknown error'
+      },
       { status: 500 }
     );
   }
