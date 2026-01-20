@@ -16,26 +16,3 @@ accountInfo:
   title: "Account Information"
   email: "Email:"
   name: "Name:"
-ticket:
-  back: "Back to dashboard"
-  loading: "Loading..."
-  mustBeLoggedIn: "You must be logged in to view this conversation"
-  login: "Log in"
-  title: "Ticket"
-  status:
-    open: "Open"
-    resolved: "Resolved"
-    needsMaintenance: "Needs Maintenance"
-    closed: "Closed"
-  markAsResolved: "Mark as resolved"
-  confirmResolved: "Mark this ticket as resolved?"
-  noMessages: "No messages in this conversation"
-  sendMessage: "Send message"
-  sending: "Sending..."
-  errors:
-    sendMessage: "Failed to send message"
-    updateStatus: "Failed to update status"
-    loadMessages: "Failed to load messages"
-support:
-  name: "GearConnect Support"
-  unknownUser: "Unknown User"

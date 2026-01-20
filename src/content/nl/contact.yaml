@@ -19,9 +19,6 @@ form:
     vehicle:
       label: "Your vehicle (optional)"
       placeholder: "Make, model and year"
-    title:
-      label: "Titel"
-      placeholder: "Voer een korte titel in voor uw verzoek (bijv. 'Inlogprobleem', 'Vraag over prestatievolging')"
     subject:
       label: "Subject"
       placeholder: "Select a subject"

@@ -19,9 +19,6 @@ form:
     vehicle:
       label: "Your vehicle (optional)"
       placeholder: "Make, model and year"
-    title:
-      label: "Titolo"
-      placeholder: "Inserisci un titolo breve per la tua richiesta (es: 'Problema di accesso', 'Domanda sul monitoraggio delle prestazioni')"
     subject:
       label: "Subject"
       placeholder: "Select a subject"

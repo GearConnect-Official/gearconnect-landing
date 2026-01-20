@@ -12,9 +12,6 @@ form:
   successMessage: "Votre message a été envoyé avec succès ! Vous pouvez consulter et continuer la conversation dans votre tableau de bord."
   errorMessage: "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer ou nous contacter par email en dernier recours."
   fields:
-    title:
-      label: "Titre"
-      placeholder: "Ex: 'Problème de connexion'"
     subject:
       label: "Sujet"
       placeholder: "Sélectionnez un sujet"

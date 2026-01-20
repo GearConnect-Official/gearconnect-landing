@@ -19,9 +19,6 @@ form:
     vehicle:
       label: "Your vehicle (optional)"
       placeholder: "Make, model and year"
-    title:
-      label: "Nadpis"
-      placeholder: "Zadejte krátký nadpis pro váš požadavek (např. 'Problém s přihlášením', 'Otázka týkající se sledování výkonu')"
     subject:
       label: "Subject"
       placeholder: "Select a subject"

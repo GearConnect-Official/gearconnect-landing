@@ -19,9 +19,6 @@ form:
     vehicle:
       label: "Your vehicle (optional)"
       placeholder: "Make, model and year"
-    title:
-      label: "Заголовок"
-      placeholder: "Введіть короткий заголовок для вашого запиту (наприклад, 'Проблема з входом', 'Питання про відстеження продуктивності')"
     subject:
       label: "Subject"
       placeholder: "Select a subject"

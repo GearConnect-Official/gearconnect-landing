@@ -9,26 +9,14 @@ import Footer from "./components/Footer";
 import { getNavbarContent, getFooterContent } from "@/lib/content";
 import { getLanguage } from "@/lib/get-language";
 
-// Configuration des polices avec gestion d'erreur améliorée
-// Si Google Fonts n'est pas accessible, les polices de secours seront utilisées
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: "swap", // Utilise la police de secours immédiatement si Google Fonts n'est pas disponible
-  fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Arial", "sans-serif"],
-  adjustFontFallback: true,
-  preload: true, // Précharger pour améliorer les performances
-  // Désactiver le chargement automatique si la connexion échoue
-  // Next.js utilisera automatiquement les polices de secours
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-  display: "swap",
-  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
-  adjustFontFallback: true,
-  preload: true,
 });
 
 export const viewport: Viewport = {
@@ -87,47 +75,9 @@ export default async function RootLayout({
   const navbarContent = getNavbarContent(lang);
   const footerContent = getFooterContent(lang);
   
-  // Clerk détecte automatiquement NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
-  // Mais on peut aussi le passer explicitement pour plus de clarté
-  // ⚠️ IMPORTANT: Cette variable DOIT être définie dans .env avec le préfixe NEXT_PUBLIC_
-  // pour être accessible côté client
-  const clerkPublishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || process.env.CLERK_PUBLISHABLE_KEY;
-  
-  if (!clerkPublishableKey) {
-    console.error('❌ NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY is not set!');
-    console.error('   Clerk ne peut pas fonctionner sans cette variable.');
-    console.error('   Ajoutez NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY dans votre fichier .env');
-    console.error('   Le site peut charger à l\'infini sans cette clé.');
-  }
-
-  // Si la clé n'est pas définie, on ne peut pas utiliser ClerkProvider
-  // On retourne une version sans Clerk pour éviter le chargement infini
-  if (!clerkPublishableKey) {
-    return (
-      <html lang={lang} suppressHydrationWarning>
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <div style={{ padding: '2rem', textAlign: 'center' }}>
-            <h1 style={{ color: '#E53935', marginBottom: '1rem' }}>Configuration manquante</h1>
-            <p style={{ marginBottom: '1rem' }}>
-              La clé <code>NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY</code> n'est pas définie dans votre fichier <code>.env</code>.
-            </p>
-            <p style={{ marginBottom: '1rem' }}>
-              Veuillez ajouter cette variable d'environnement pour que l'application fonctionne correctement.
-            </p>
-            <p style={{ fontSize: '0.9rem', color: '#666' }}>
-              Consultez <code>ENV_COMPLETE.md</code> pour plus d'informations.
-            </p>
-          </div>
-        </body>
-      </html>
-    );
-  }
-  
   return (
-    <ClerkProvider
-      publishableKey={clerkPublishableKey}
-    >
-      <html lang={lang} suppressHydrationWarning>
+    <ClerkProvider>
+      <html lang={lang}>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >

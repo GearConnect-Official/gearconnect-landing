@@ -76,7 +76,6 @@ export interface NavbarContent {
     faq: string;
     contact: string;
     myAccount: string;
-    login: string;
   };
   cta: {
     text: string;
@@ -204,10 +203,6 @@ export interface ContactContent {
     successMessage: string;
     errorMessage: string;
     fields: {
-      title: {
-        label: string;
-        placeholder: string;
-      };
       subject: {
         label: string;
         placeholder: string;
@@ -334,33 +329,6 @@ export interface DashboardContent {
     title: string;
     email: string;
     name: string;
-  };
-  ticket?: {
-    back: string;
-    loading: string;
-    mustBeLoggedIn: string;
-    login: string;
-    title: string;
-    status: {
-      open: string;
-      resolved: string;
-      needsMaintenance: string;
-      closed: string;
-    };
-    markAsResolved: string;
-    confirmResolved: string;
-    noMessages: string;
-    sendMessage: string;
-    sending: string;
-    errors: {
-      sendMessage: string;
-      updateStatus: string;
-      loadMessages: string;
-    };
-  };
-  support?: {
-    name: string;
-    unknownUser: string;
   };
 }
 

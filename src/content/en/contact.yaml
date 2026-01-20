@@ -12,9 +12,6 @@ form:
   successMessage: "Your message has been sent successfully! You can view and continue the conversation in your dashboard."
   errorMessage: "An error occurred while sending your message. Please try again or contact us via email as a last resort."
   fields:
-    title:
-      label: "Title"
-      placeholder: "e.g., 'Login issue'"
     subject:
       label: "Subject"
       placeholder: "Select a subject"

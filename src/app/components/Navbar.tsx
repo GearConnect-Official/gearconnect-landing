@@ -31,13 +31,9 @@ interface NavbarProps {
 
 export default function Navbar({ content, currentLang = 'en' }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isSignedIn, user, isLoaded } = useUser();
+  const { isSignedIn, user } = useUser();
   // Use currentLang directly from props to avoid hydration mismatch
   const lang = currentLang;
-  
-  // Wait for Clerk to load before rendering auth-dependent content
-  // This prevents hydration mismatch between server and client
-  const showAuthContent = isLoaded;
 
   return (
     <nav className="navbar border-grey">
@@ -77,7 +73,7 @@ export default function Navbar({ content, currentLang = 'en' }: NavbarProps) {
               </Link>
             </div>
             <LanguageSwitcher currentLang={lang} />
-            {showAuthContent && isSignedIn ? (
+            {isSignedIn ? (
               <>
                 <Link 
                   href="/dashboard" 
@@ -93,7 +89,7 @@ export default function Navbar({ content, currentLang = 'en' }: NavbarProps) {
                   }}
                 />
               </>
-            ) : showAuthContent && !isSignedIn ? (
+            ) : (
               <>
                 <Link 
                   href="/auth/login" 
@@ -107,22 +103,6 @@ export default function Navbar({ content, currentLang = 'en' }: NavbarProps) {
                 >
                   {content.cta.text}
                 </Link>
-              </>
-            ) : (
-              // Show login button while Clerk is loading to prevent hydration mismatch
-              <>
-                <Link 
-                  href="/auth/login" 
-                  className="px-3 lg:px-4 py-2 rounded-lg text-xs lg:text-sm font-semibold transition-all duration-300 ease-out whitespace-nowrap navbar-link"
-                >
-                  {content.menu.login}
-                </Link>
-              <Link 
-                href={content.cta.link} 
-                className="text-white px-3 lg:px-6 py-2 rounded-lg text-xs lg:text-sm font-semibold shadow-md transition-all duration-300 ease-out transform hover:scale-105 hover:shadow-lg whitespace-nowrap navbar-cta"
-              >
-                {content.cta.text}
-              </Link>
               </>
             )}
           </div>
@@ -169,7 +149,7 @@ export default function Navbar({ content, currentLang = 'en' }: NavbarProps) {
             <div className="px-4 mt-4">
               <LanguageSwitcher currentLang={lang} />
             </div>
-            {showAuthContent && isSignedIn ? (
+            {isSignedIn ? (
               <>
                 <Link 
                   href="/dashboard" 
@@ -181,7 +161,7 @@ export default function Navbar({ content, currentLang = 'en' }: NavbarProps) {
                   <UserButton />
                 </div>
               </>
-            ) : showAuthContent && !isSignedIn ? (
+            ) : (
               <>
                 <Link 
                   href="/auth/login" 
@@ -195,22 +175,6 @@ export default function Navbar({ content, currentLang = 'en' }: NavbarProps) {
                 >
                   {content.cta.text}
                 </Link>
-              </>
-            ) : (
-              // Show login button while Clerk is loading to prevent hydration mismatch
-              <>
-                <Link 
-                  href="/auth/login" 
-                  className="block px-4 py-3 rounded-lg text-base font-semibold transition-all duration-200 navbar-link"
-                >
-                  {content.menu.login}
-                </Link>
-              <Link 
-                href={content.cta.link} 
-                className="block mx-4 mt-4 text-white px-4 py-3 rounded-lg text-base font-semibold text-center transition-all duration-200 navbar-cta"
-              >
-                {content.cta.text}
-              </Link>
               </>
             )}
           </div>

@@ -14,10 +14,6 @@ interface ContactFormProps {
   successMessage: string;
   errorMessage: string;
   fields: {
-    title: {
-      label: string;
-      placeholder: string;
-    };
     subject: {
       label: string;
       placeholder: string;
@@ -49,7 +45,6 @@ export default function ContactForm({
 }: ContactFormProps) {
   const { isLoaded, isSignedIn } = useUser();
   const [formData, setFormData] = useState({
-    title: '',
     subject: '',
     message: '',
     privacy: false,
@@ -71,8 +66,8 @@ export default function ContactForm({
     setError('');
     setSuccess(false);
 
-    if (!formData.title.trim() || !formData.subject || !formData.subject.trim() || formData.subject === '' || !formData.message.trim()) {
-      setError('Title, subject and message are required');
+    if (!formData.subject || !formData.message.trim()) {
+      setError('Subject and message are required');
       return;
     }
 
@@ -90,7 +85,6 @@ export default function ContactForm({
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          title: formData.title.trim(),
           subject: formData.subject,
           message: formData.message,
         }),
@@ -105,7 +99,6 @@ export default function ContactForm({
 
       setSuccess(true);
       setFormData({
-        title: '',
         subject: '',
         message: '',
         privacy: false,
@@ -192,23 +185,6 @@ export default function ContactForm({
       )}
       
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label htmlFor="title" className="block text-sm sm:text-base font-medium mb-2 break-words text-secondary">
-            {fields.title.label}
-          </label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-            required
-            maxLength={100}
-            className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#E53935] focus:border-[#E53935] bg-white transition-all duration-200 contact-input border-grey"
-            placeholder={fields.title.placeholder}
-          />
-        </div>
-        
         <div>
           <label htmlFor="subject" className="block text-sm sm:text-base font-medium mb-2 break-words text-secondary">
             {fields.subject.label}

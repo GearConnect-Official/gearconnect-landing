@@ -19,9 +19,6 @@ form:
     vehicle:
       label: "Your vehicle (optional)"
       placeholder: "Make, model and year"
-    title:
-      label: "Başlık"
-      placeholder: "İsteğiniz için kısa bir başlık girin (örn: 'Giriş sorunu', 'Performans takibi sorusu')"
     subject:
       label: "Subject"
       placeholder: "Select a subject"
