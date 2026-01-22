@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
       fullUrl: false, // Ne pas logger les URLs complètes pour réduire le bruit
     },
   },
+  output: "export",
 };
 
 export default nextConfig;

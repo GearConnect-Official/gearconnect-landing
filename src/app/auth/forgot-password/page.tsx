@@ -27,12 +27,24 @@ export default function ForgotPasswordPage() {
     }
 
     try {
-      await signIn.create({
+      const signInAttempt = await signIn.create({
         identifier: email,
       });
 
+      // Find the email address ID from the supported first factors
+      const emailFactor = signInAttempt.supportedFirstFactors?.find(
+        (factor) => factor.strategy === 'reset_password_email_code'
+      );
+
+      if (!emailFactor || !('emailAddressId' in emailFactor)) {
+        setError('La réinitialisation du mot de passe par email n\'est pas disponible pour ce compte.');
+        setLoading(false);
+        return;
+      }
+
       await signIn.prepareFirstFactor({
         strategy: 'reset_password_email_code',
+        emailAddressId: emailFactor.emailAddressId,
       });
 
       setStep('code');
@@ -53,6 +65,11 @@ export default function ForgotPasswordPage() {
 
     if (code.length !== 6) {
       setError('Le code doit contenir 6 chiffres.');
+      return;
+    }
+
+    if (!signIn) {
+      setError('Système non prêt. Veuillez réessayer.');
       return;
     }
 
@@ -87,6 +104,11 @@ export default function ForgotPasswordPage() {
 
     if (password.length < 8) {
       setError('Le mot de passe doit contenir au moins 8 caractères.');
+      return;
+    }
+
+    if (!signIn) {
+      setError('Système non prêt. Veuillez réessayer.');
       return;
     }
 
