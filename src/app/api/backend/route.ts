@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { auth, clerkClient } from '@clerk/nextjs/server';
+import { auth } from '@clerk/nextjs/server';
 
 // URL du backend Express (à configurer dans les variables d'environnement)
 const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3001';

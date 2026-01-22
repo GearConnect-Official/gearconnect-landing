@@ -110,7 +110,7 @@ export default function ContactForm({
         message: '',
         privacy: false,
       });
-    } catch (err) {
+    } catch {
       setError(errorMessage);
     } finally {
       setLoading(false);

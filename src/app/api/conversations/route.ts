@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 
 const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3001';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // Utiliser auth() avec les headers de la requête pour s'assurer que les cookies sont bien lus
     const { userId, getToken } = await auth();
@@ -55,23 +55,24 @@ export async function GET(request: NextRequest) {
 
     const tickets = await ticketsResponse.json();
     return NextResponse.json(tickets);
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error fetching tickets:', error);
     
     // Gérer les différents types d'erreurs
-    if (error.name === 'AbortError' || error.code === 'UND_ERR_HEADERS_TIMEOUT' || error.message?.includes('timeout')) {
+    const err = error as { name?: string; code?: string; message?: string };
+    if (err.name === 'AbortError' || err.code === 'UND_ERR_HEADERS_TIMEOUT' || err.message?.includes('timeout')) {
       console.warn('Request timeout. Backend may be slow or unreachable. Returning empty tickets.');
       return NextResponse.json({ tickets: [], byCategory: {}, categories: [] });
     }
     
     // Si c'est une erreur réseau, retourner un objet vide plutôt qu'une erreur
-    if (error.message?.includes('fetch') || error.code === 'ECONNREFUSED') {
+    if (err.message?.includes('fetch') || err.code === 'ECONNREFUSED') {
       console.warn('Backend is not reachable. Returning empty tickets.');
       return NextResponse.json({ tickets: [], byCategory: {}, categories: [] });
     }
     
     return NextResponse.json(
-      { error: 'Internal server error', details: error.message },
+      { error: 'Internal server error', details: err.message },
       { status: 500 }
     );
   }

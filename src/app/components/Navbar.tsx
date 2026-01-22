@@ -31,7 +31,7 @@ interface NavbarProps {
 
 export default function Navbar({ content, currentLang = 'en' }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isSignedIn, user, isLoaded } = useUser();
+  const { isSignedIn, isLoaded } = useUser();
   // Use currentLang directly from props to avoid hydration mismatch
   const lang = currentLang;
   

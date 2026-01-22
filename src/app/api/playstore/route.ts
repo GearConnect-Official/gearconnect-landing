@@ -22,7 +22,7 @@ export async function GET() {
     }
 
     // ID de l'app GearConnect sur Google Play
-    const appId = 'com.gearconnect.app';
+    // const appId = 'com.gearconnect.app'; // Réservé pour utilisation future
     
     // Note: L'API officielle Google Play nécessite une authentification complexe
     // Pour l'instant, on utilise des données statiques ou on peut scraper (non recommandé)

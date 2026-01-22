@@ -1,12 +1,13 @@
 "use client";
 
-import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { supportedLanguages, languageNames, type Language } from '@/lib/i18n';
 
 export default function LanguageSwitcher({ currentLang }: { currentLang: Language }) {
-  const router = useRouter();
-  const pathname = usePathname();
+  // router and pathname reserved for future use
+  // import { usePathname, useRouter } from 'next/navigation';
+  // const router = useRouter();
+  // const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   // Use currentLang directly from props to avoid hydration mismatch
   const lang = currentLang;

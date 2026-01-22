@@ -31,12 +31,11 @@ export default function ContactInfo({
         <div className="flex items-start">
           <div className="p-3 rounded-full flex-shrink-0 transform hover:scale-110 transition-transform duration-300 bg-light-red">
             <svg
-              className="w-6 h-6"
+              className="w-6 h-6 text-brand"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
-              className="text-brand"
             >
               <path
                 strokeLinecap="round"

@@ -57,7 +57,7 @@ interface DashboardClientProps {
 export default function DashboardClient({ content, contactContent }: DashboardClientProps) {
   const { user, isLoaded } = useUser();
   
-  const [conversations, setConversations] = useState<Conversation[]>([]);
+  const [, setConversations] = useState<Conversation[]>([]);
   const [conversationsBySubject, setConversationsBySubject] = useState<Record<string, Conversation[]>>({});
   const [loading, setLoading] = useState(true);
   
@@ -104,7 +104,7 @@ export default function DashboardClient({ content, contactContent }: DashboardCl
             setConversations(formattedTickets);
             setConversationsBySubject(bySubject);
           } else {
-              const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+              await response.json().catch(() => ({ error: 'Unknown error' }));
               
               // Gérer les différents codes d'erreur
               if (response.status === 401) {
@@ -219,7 +219,7 @@ export default function DashboardClient({ content, contactContent }: DashboardCl
                           {subjectTickets.map((conv) => {
                             // Trouver l'autre participant (pas l'utilisateur actuel)
                             const otherParticipant = conv.participants?.find(
-                              (p) => p.user.id !== (user as any)?.internalId
+                              (p) => p.user.id !== (user as { internalId?: number })?.internalId
                             ) || conv.participants?.[0];
                             
                             return (

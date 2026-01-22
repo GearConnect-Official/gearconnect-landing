@@ -36,12 +36,12 @@ export async function GET() {
       userId,
       message: 'Copy the token value and use it in your tests'
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('[Get Token API] Error:', error);
     return NextResponse.json(
       { 
         error: 'Internal server error',
-        message: error.message || 'Unknown error'
+        message: (error as { message?: string }).message || 'Unknown error'
       },
       { status: 500 }
     );

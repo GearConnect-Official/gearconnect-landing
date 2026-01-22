@@ -27,19 +27,30 @@ export default function ForgotPasswordPage() {
     }
 
     try {
-      await signIn.create({
+      const result = await signIn.create({
         identifier: email,
       });
 
+      // Récupérer l'ID de l'adresse email depuis les identifiants disponibles
+      const emailAddressId = result.supportedFirstFactors?.find(
+        (factor) => factor.strategy === 'reset_password_email_code'
+      )?.emailAddressId;
+
+      if (!emailAddressId) {
+        throw new Error('Email address ID not found');
+      }
+
       await signIn.prepareFirstFactor({
         strategy: 'reset_password_email_code',
+        emailAddressId,
       });
 
       setStep('code');
-    } catch (err: any) {
+    } catch (err: unknown) {
+      const error = err as { errors?: Array<{ longMessage?: string; message?: string }> };
       setError(
-        err.errors?.[0]?.longMessage || 
-        err.errors?.[0]?.message || 
+        error.errors?.[0]?.longMessage || 
+        error.errors?.[0]?.message || 
         'Erreur lors de l\'envoi du code. Vérifiez votre email.'
       );
     } finally {
@@ -50,6 +61,11 @@ export default function ForgotPasswordPage() {
   const handleCodeSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+
+    if (!isLoaded || !signIn) {
+      setError('Système non prêt. Veuillez réessayer.');
+      return;
+    }
 
     if (code.length !== 6) {
       setError('Le code doit contenir 6 chiffres.');
@@ -65,10 +81,11 @@ export default function ForgotPasswordPage() {
       });
 
       setStep('password');
-    } catch (err: any) {
+    } catch (err: unknown) {
+      const error = err as { errors?: Array<{ longMessage?: string; message?: string }> };
       setError(
-        err.errors?.[0]?.longMessage || 
-        err.errors?.[0]?.message || 
+        error.errors?.[0]?.longMessage || 
+        error.errors?.[0]?.message || 
         'Code invalide. Veuillez réessayer.'
       );
     } finally {
@@ -79,6 +96,11 @@ export default function ForgotPasswordPage() {
   const handlePasswordSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+
+    if (!isLoaded || !signIn) {
+      setError('Système non prêt. Veuillez réessayer.');
+      return;
+    }
 
     if (password !== confirmPassword) {
       setError('Les mots de passe ne correspondent pas.');
@@ -101,10 +123,11 @@ export default function ForgotPasswordPage() {
         await setActive({ session: result.createdSessionId });
         window.location.href = '/dashboard';
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
+      const error = err as { errors?: Array<{ longMessage?: string; message?: string }> };
       setError(
-        err.errors?.[0]?.longMessage || 
-        err.errors?.[0]?.message || 
+        error.errors?.[0]?.longMessage || 
+        error.errors?.[0]?.message || 
         'Erreur lors de la réinitialisation. Veuillez réessayer.'
       );
     } finally {

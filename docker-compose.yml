@@ -1,0 +1,29 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+        - NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=${NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}
+    container_name: gearconnect-landing
+    ports:
+      - "${DOCKER_PORT:-3000}:3000"
+    restart: always
+    env_file:
+      - .env
+    environment:
+      # Clerk Authentication
+      - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+      - CLERK_PUBLISHABLE_KEY=${CLERK_PUBLISHABLE_KEY}
+      - CLERK_SECRET_KEY=${CLERK_SECRET_KEY}
+      # Backend API
+      - BACKEND_URL=${BACKEND_URL}
+      # Dashboard Admin
+      - DASHBOARD_ADMIN_URL=${DASHBOARD_ADMIN_URL}
+      # Cloudinary (optional)
+      - NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=${NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}
+      # Node Environment
+      - NODE_ENV=production
+    # Optionally add network to communicate with other services
+    # If both containers are on the same Docker network, use container name
+    # If accessing from host, use localhost

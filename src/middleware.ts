@@ -25,9 +25,9 @@ export default clerkMiddleware(async (auth, req) => {
   }
   
   // Gestion de la langue (i18n)
-  const pathnameHasLocale = supportedLanguages.some(
-    (lang) => pathname.startsWith(`/${lang}/`) || pathname === `/${lang}`
-  );
+  // const pathnameHasLocale = supportedLanguages.some(
+  //   (lang) => pathname.startsWith(`/${lang}/`) || pathname === `/${lang}`
+  // ); // Reserved for future use
   
   let locale: Language = defaultLanguage;
   

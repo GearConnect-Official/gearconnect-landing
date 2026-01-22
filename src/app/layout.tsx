@@ -109,13 +109,13 @@ export default async function RootLayout({
           <div style={{ padding: '2rem', textAlign: 'center' }}>
             <h1 style={{ color: '#E53935', marginBottom: '1rem' }}>Configuration manquante</h1>
             <p style={{ marginBottom: '1rem' }}>
-              La clé <code>NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY</code> n'est pas définie dans votre fichier <code>.env</code>.
+              La clé <code>NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY</code> n&apos;est pas définie dans votre fichier <code>.env</code>.
             </p>
             <p style={{ marginBottom: '1rem' }}>
-              Veuillez ajouter cette variable d'environnement pour que l'application fonctionne correctement.
+              Veuillez ajouter cette variable d&apos;environnement pour que l&apos;application fonctionne correctement.
             </p>
             <p style={{ fontSize: '0.9rem', color: '#666' }}>
-              Consultez <code>ENV_COMPLETE.md</code> pour plus d'informations.
+              Consultez <code>ENV_COMPLETE.md</code> pour plus d&apos;informations.
             </p>
           </div>
         </body>

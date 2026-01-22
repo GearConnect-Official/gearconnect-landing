@@ -47,10 +47,11 @@ export async function GET(
 
     const data = await response.json();
     return NextResponse.json(data);
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error fetching ticket messages:', error);
+    const err = error as { name?: string; message?: string };
     
-    if (error.name === 'AbortError' || error.message?.includes('timeout')) {
+    if (err.name === 'AbortError' || err.message?.includes('timeout')) {
       return NextResponse.json(
         { error: 'Request timeout', messages: [] },
         { status: 504 }
@@ -58,7 +59,7 @@ export async function GET(
     }
     
     return NextResponse.json(
-      { error: 'Internal server error', details: error.message },
+      { error: 'Internal server error', details: err.message },
       { status: 500 }
     );
   }
@@ -119,10 +120,11 @@ export async function POST(
 
     const data = await response.json();
     return NextResponse.json(data);
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error sending message to ticket:', error);
+    const err = error as { name?: string; message?: string };
     
-    if (error.name === 'AbortError' || error.message?.includes('timeout')) {
+    if (err.name === 'AbortError' || err.message?.includes('timeout')) {
       return NextResponse.json(
         { error: 'Request timeout. Please try again.' },
         { status: 504 }
@@ -130,7 +132,7 @@ export async function POST(
     }
     
     return NextResponse.json(
-      { error: 'Internal server error', details: error.message },
+      { error: 'Internal server error', details: err.message },
       { status: 500 }
     );
   }

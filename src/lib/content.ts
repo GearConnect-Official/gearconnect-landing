@@ -129,6 +129,10 @@ export interface FeaturesContent {
     title: string;
     description: string;
   };
+  notice: {
+    label: string;
+    text: string;
+  };
   performanceTracking: {
     title: string;
     description: string;

@@ -1,16 +1,15 @@
 import { SignIn } from '@clerk/nextjs';
 import Image from 'next/image';
 
-interface SignInPageProps {
+export default async function SignInPage({
+  searchParams,
+}: {
   searchParams?: Promise<{
     redirect_url?: string;
   }>;
-}
-
-export default async function SignInPage(props: SignInPageProps = {}) {
+}) {
   // Utiliser l'URL de redirection depuis les paramètres de requête, ou /dashboard par défaut
-  const searchParams = props.searchParams || Promise.resolve({} as { redirect_url?: string });
-  const params = await searchParams;
+  const params = await (searchParams || Promise.resolve({} as { redirect_url?: string }));
   const redirectUrl = params?.redirect_url || '/dashboard';
   const afterSignInUrl = redirectUrl;
 

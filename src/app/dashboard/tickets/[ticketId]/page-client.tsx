@@ -2,7 +2,7 @@
 
 import { useUser } from '@clerk/nextjs';
 import { useEffect, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { DashboardContent } from '@/lib/content';
 import '@/styles/components/dashboard.css';
@@ -28,7 +28,7 @@ interface TicketPageClientProps {
 export default function TicketPageClient({ content }: TicketPageClientProps) {
   const { user, isLoaded } = useUser();
   const params = useParams();
-  const router = useRouter();
+  // const router = useRouter(); // Reserved for future use
   const ticketId = Array.isArray(params.ticketId) ? params.ticketId[0] : params.ticketId as string;
   
   const [messages, setMessages] = useState<Message[]>([]);

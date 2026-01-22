@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 
 const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3001';
-const DASHBOARD_ADMIN_URL = process.env.DASHBOARD_ADMIN_URL || 'http://localhost:3002';
 
 export async function POST(request: NextRequest) {
   try {
@@ -91,10 +90,12 @@ export async function POST(request: NextRequest) {
         message: 'Your message has been sent successfully to our support team. You will receive a response soon.',
         ticketId: result.ticketId,
       });
-    } catch (fetchError: any) {
+    } catch (fetchError: unknown) {
       clearTimeout(timeoutId);
       
-      if (fetchError.name === 'AbortError') {
+      const err = fetchError as { name?: string; code?: string; message?: string };
+      
+      if (err.name === 'AbortError') {
         console.error('[Contact API] Request timeout after 15 seconds. Backend may be unreachable.');
         console.error(`[Contact API] BACKEND_URL: ${BACKEND_URL}`);
         return NextResponse.json(
@@ -106,7 +107,7 @@ export async function POST(request: NextRequest) {
         );
       }
       
-      if (fetchError.code === 'ECONNREFUSED' || fetchError.message?.includes('ECONNREFUSED')) {
+      if (err.code === 'ECONNREFUSED' || err.message?.includes('ECONNREFUSED')) {
         console.error('[Contact API] Connection refused. Backend is not running or not accessible.');
         console.error(`[Contact API] BACKEND_URL: ${BACKEND_URL}`);
         return NextResponse.json(
@@ -120,12 +121,12 @@ export async function POST(request: NextRequest) {
       
       throw fetchError; // Re-throw pour être capturé par le catch externe
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('[Contact API] Unexpected error:', error);
     return NextResponse.json(
       { 
         error: 'Internal server error',
-        details: error.message || 'Unknown error'
+        details: (error as { message?: string }).message || 'Unknown error'
       },
       { status: 500 }
     );

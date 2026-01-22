@@ -103,10 +103,11 @@ export default function RegisterPage() {
 
         router.push('/dashboard');
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
+      const error = err as { errors?: Array<{ longMessage?: string; message?: string }> };
       setError(
-        err.errors?.[0]?.longMessage || 
-        err.errors?.[0]?.message || 
+        error.errors?.[0]?.longMessage || 
+        error.errors?.[0]?.message || 
         'Erreur lors de l\'inscription. Veuillez réessayer.'
       );
     } finally {
@@ -154,10 +155,11 @@ export default function RegisterPage() {
       } else {
         setError('Le code de vérification est incorrect.');
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
+      const error = err as { errors?: Array<{ longMessage?: string; message?: string }> };
       setError(
-        err.errors?.[0]?.longMessage || 
-        err.errors?.[0]?.message || 
+        error.errors?.[0]?.longMessage || 
+        error.errors?.[0]?.message || 
         'Code de vérification invalide. Veuillez réessayer.'
       );
     } finally {
@@ -274,7 +276,7 @@ export default function RegisterPage() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="username" className="block text-sm font-semibold mb-2 text-primary">
-                Nom d'utilisateur
+                Nom d&apos;utilisateur
               </label>
               <input
                 id="username"

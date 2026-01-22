@@ -56,10 +56,10 @@ export async function PATCH(
 
     const data = await response.json();
     return NextResponse.json(data);
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('[Ticket Status API] Error:', error);
     return NextResponse.json(
-      { error: 'Internal server error', details: error.message },
+      { error: 'Internal server error', details: (error as { message?: string }).message },
       { status: 500 }
     );
   }
