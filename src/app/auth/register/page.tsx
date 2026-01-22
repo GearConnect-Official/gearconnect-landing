@@ -47,15 +47,37 @@ export default function RegisterPage() {
     }
 
     try {
-      // Inscription avec Clerk
+      // Inscription avec Clerk (sans username, Clerk ne le supporte pas dans create)
       const result = await signUp.create({
         emailAddress: email,
         password,
-        username,
       });
+
+      // Mettre à jour les métadonnées publiques avec le username
+      if (result.status !== 'missing_requirements') {
+        try {
+          await signUp.update({
+            unsafeMetadata: {
+              username: username,
+            },
+          });
+        } catch (metaError) {
+          console.warn('Failed to update username metadata:', metaError);
+        }
+      }
 
       // Si l'email doit être vérifié
       if (result.status === 'missing_requirements') {
+        // Mettre à jour les métadonnées avant la vérification
+        try {
+          await signUp.update({
+            unsafeMetadata: {
+              username: username,
+            },
+          });
+        } catch (metaError) {
+          console.warn('Failed to update username metadata:', metaError);
+        }
         setPendingVerification(true);
         await signUp.prepareEmailAddressVerification({ strategy: 'email_code' });
       } else if (result.status === 'complete') {

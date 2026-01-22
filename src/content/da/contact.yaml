@@ -19,6 +19,9 @@ form:
     vehicle:
       label: "Your vehicle (optional)"
       placeholder: "Make, model and year"
+    title:
+      label: "Titel"
+      placeholder: "Indtast en kort titel til din anmodning (f.eks. 'Login-problem', 'Spørgsmål om præstationssporing')"
     subject:
       label: "Subject"
       placeholder: "Select a subject"
