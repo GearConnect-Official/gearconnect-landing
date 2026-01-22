@@ -1,0 +1,13 @@
+services:
+  web:
+    build: .
+    container_name: gearconnect-landing
+    ports:
+      - "${DOCKER_PORT:-3000}:3000"
+    restart: always
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - NODE_ENV=production
+    # Optionally add network to communicate with other services
+    # If both containers are on the same Docker network, use container name
+    # If accessing from host, use localhost
