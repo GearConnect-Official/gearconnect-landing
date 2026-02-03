@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import gplay from 'google-play-scraper';
 
 // Interface pour les données Play Store
 interface PlayStoreData {
@@ -13,6 +14,17 @@ let cachedData: PlayStoreData | null = null;
 let cacheTimestamp = 0;
 const CACHE_DURATION = 60 * 60 * 1000; // 1 heure
 
+// ID de l'app GearConnect sur Google Play
+const APP_ID = process.env.PLAYSTORE_APP_ID || 'com.gearconnect.app';
+
+// Données par défaut en cas d'erreur ou si l'app n'est pas encore publiée
+const DEFAULT_DATA: PlayStoreData = {
+  rating: 0,
+  reviews: 0,
+  downloads: '0',
+  lastUpdated: new Date().toISOString(),
+};
+
 export async function GET() {
   try {
     // Vérifier le cache
@@ -21,20 +33,14 @@ export async function GET() {
       return NextResponse.json(cachedData);
     }
 
-    // ID de l'app GearConnect sur Google Play
-    // const appId = 'com.gearconnect.app'; // Réservé pour utilisation future
-    
-    // Note: L'API officielle Google Play nécessite une authentification complexe
-    // Pour l'instant, on utilise des données statiques ou on peut scraper (non recommandé)
-    // Solution recommandée: Utiliser un service tiers comme AppFollow, AppAnnie, ou 42matters
-    
-    // Pour l'instant, retourner des données par défaut
-    // TODO: Intégrer avec une API tierce ou scraper de manière légale
+    // Récupérer les données depuis Google Play Store
+    const appDetails = await gplay.app({ appId: APP_ID });
+
     const playStoreData: PlayStoreData = {
-      rating: 4.5,
-      reviews: 1250,
-      downloads: '10K+',
-      lastUpdated: new Date().toISOString(),
+      rating: appDetails.score || 0,
+      reviews: appDetails.reviews || 0,
+      downloads: appDetails.installs || '0',
+      lastUpdated: appDetails.updated ? new Date(appDetails.updated).toISOString() : new Date().toISOString(),
     };
 
     // Mettre à jour le cache
@@ -44,12 +50,16 @@ export async function GET() {
     return NextResponse.json(playStoreData);
   } catch (error) {
     console.error('Error fetching Play Store data:', error);
-    // Retourner des données par défaut en cas d'erreur
-    return NextResponse.json({
-      rating: 4.5,
-      reviews: 1250,
-      downloads: '10K+',
-      lastUpdated: new Date().toISOString(),
-    });
+
+    // Si on a des données en cache (même expirées), les retourner
+    if (cachedData) {
+      return NextResponse.json(cachedData);
+    }
+
+    // Sinon retourner des données par défaut
+    return NextResponse.json(DEFAULT_DATA);
   }
 }
+
+// Force dynamic rendering (no static pre-rendering)
+export const dynamic = 'force-dynamic';
