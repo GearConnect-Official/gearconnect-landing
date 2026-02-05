@@ -4,6 +4,7 @@ import { useUser } from '@clerk/nextjs';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { DashboardContent } from '@/lib/content';
+import { useBackendSync } from '@/hooks/useBackendSync';
 
 interface Conversation {
   id: number;
@@ -56,7 +57,10 @@ interface DashboardClientProps {
 
 export default function DashboardClient({ content, contactContent }: DashboardClientProps) {
   const { user, isLoaded } = useUser();
-  
+
+  // Sync user with backend (uses same auth routes as mobile app)
+  const { synced: backendSynced, loading: syncLoading } = useBackendSync();
+
   const [, setConversations] = useState<Conversation[]>([]);
   const [conversationsBySubject, setConversationsBySubject] = useState<Record<string, Conversation[]>>({});
   const [loading, setLoading] = useState(true);
@@ -68,8 +72,9 @@ export default function DashboardClient({ content, contactContent }: DashboardCl
     .map(opt => ({ value: opt.value, label: opt.label }));
 
   useEffect(() => {
-    if (isLoaded) {
-      if (user) {
+    // Wait for both Clerk auth and backend sync before fetching conversations
+    if (isLoaded && !syncLoading) {
+      if (user && backendSynced) {
       const fetchConversations = async () => {
           // Timeout pour éviter que le chargement dure trop longtemps
           const timeoutId = setTimeout(() => {
